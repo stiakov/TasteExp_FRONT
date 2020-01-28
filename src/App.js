@@ -1,9 +1,15 @@
 import React from 'react';
-import { Router, Link } from "@reach/router";
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './Routes';
+import Nav from './Components/Nav';
 
 function App() {
   return (
-    <div className="App"> HELLO DEV!
+    <div className="App">
+      <Router>
+        <Nav />
+        <Routes />
+      </Router>
     </div>
   );
 }
