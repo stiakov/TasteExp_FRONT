@@ -21,7 +21,7 @@ const Login = () => {
             type="text"
             name="email"
             value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={event => setEmail(event.target.value)}
             placeholder="E-Mail"
             required
           />
@@ -33,7 +33,7 @@ const Login = () => {
             type="password"
             name="password"
             value={password}
-            onChange={(event) => setPassword(event.target.value)}
+            onChange={event => setPassword(event.target.value)}
             placeholder="Password"
             required
           />
