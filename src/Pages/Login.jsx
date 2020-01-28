@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { loginUser } from '../redux/actions/authActions';
 
-const Login = () => {
+const Login = (props) => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  console.log('props ', props);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log({ password, email });
-    // createBook(newBook);
-    // return newBook;
+    const user = { password, email };
+    debugger
+    dispatch(loginUser(user));
+    return user;
   };
 
   return (
@@ -44,4 +49,8 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = state => ({ user: state });
+
+const mapDispatchToProps = dispatch => ({ loginUser: user => dispatch(loginUser(user)) });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
