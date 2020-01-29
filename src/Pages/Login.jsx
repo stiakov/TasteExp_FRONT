@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { loginUser } from '../redux/actions/authActions';
 
-const Login = (props) => {
+const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  console.log('props ', props);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const user = { password, email };
-    debugger
+    const user = { email, password };
     dispatch(loginUser(user));
     return user;
   };
@@ -26,8 +24,9 @@ const Login = (props) => {
             type="text"
             name="email"
             value={email}
-            onChange={event => setEmail(event.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
             placeholder="E-Mail"
+            autoComplete="email"
             required
           />
         </label>
@@ -38,19 +37,18 @@ const Login = (props) => {
             type="password"
             name="password"
             value={password}
-            onChange={event => setPassword(event.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
             placeholder="Password"
+            autoComplete="password"
             required
           />
         </label>
-        <button type="submit" style={undefined}>ADD BOOK</button>
+        <button type="submit" style={undefined}>Sign in!</button>
       </form>
     </div>
   );
 };
 
-const mapStateToProps = state => ({ user: state });
+const mapStateToProps = (state) => ({ user: state.user });
 
-const mapDispatchToProps = dispatch => ({ loginUser: user => dispatch(loginUser(user)) });
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, null)(Login);
