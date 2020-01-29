@@ -29,9 +29,8 @@ const signupUser = (user) => (dispatch) => axios.post(`${BASE_URL}/`, user)
   .then((response) => {
     dispatch({
       type: SIGNUP_USER,
-      user: response.data.data,
+      user: { current: response.data.data, headers: response.headers },
     });
-    localStorage.setItem('user', JSON.stringify({ current: response.data.data, headers: response.headers }));
   }, (error) => errorLogger(error, dispatch));
 
 const SIGNOUT_USER = 'SIGNOUT_USER';

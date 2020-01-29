@@ -5,13 +5,14 @@ import { signupUser } from '../redux/authActions';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [password_confirmation, setPasswordConfirmation] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const user = { email, password, password_confirmation };
+    const user = { name, email, password, password_confirmation };
     dispatch(signupUser(user));
     return user;
   };
@@ -19,6 +20,19 @@ const Login = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="name">
+          <input
+            id="name"
+            label="name"
+            type="text"
+            name="name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            placeholder="Full Name"
+            autoComplete="name"
+            required
+          />
+        </label>
         <label htmlFor="email">
           <input
             id="email"
