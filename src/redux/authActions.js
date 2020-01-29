@@ -29,19 +29,24 @@ const signupUser = (user) => (dispatch) => axios.post(`${BASE_URL}/`, user)
       type: SIGNUP_USER,
       user: response.data.data,
     });
+    localStorage.setItem('user', response.data.data);
     localStorage.setItem('headers', JSON.stringify(response.headers));
   }, (error) => errorLogger(error, dispatch));
 
 const SIGNOUT_USER = 'SIGNOUT_USER';
 
-const signoutUser = (user) => (dispatch) => axios.post(`${BASE_URL}/`, user)
-  .then((response) => {
-    dispatch({
-      type: SIGNOUT_USER,
-      user: response.data.data,
-    });
-    localStorage.setItem('headers', JSON.stringify(response.headers));
-  }, (error) => errorLogger(error, dispatch));
+const signoutUser = () => (dispatch) => {
+  const headers = { headers: JSON.parse(localStorage.getItem('headers')) };
+  return axios.delete(`${BASE_URL}/sign_out`, headers)
+    .then((response) => {
+      console.log('response ', response)
+      dispatch({
+        type: SIGNOUT_USER,
+        user: false,
+      });
+      localStorage.setItem('headers', '');
+    }, (error) => errorLogger(error, dispatch));
+};
 
 export {
   loginUser,
