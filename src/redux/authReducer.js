@@ -1,4 +1,4 @@
-import { LOGIN_USER, SIGNUP_USER, SIGNOUT_USER } from './authActions';
+import { LOGIN_USER, SIGNUP_USER, SIGNOUT_USER, CHECK_SIGNED_IN } from './authActions';
 
 const authReducer = (state = [], { type, user }) => {
   switch (type) {
@@ -7,6 +7,8 @@ const authReducer = (state = [], { type, user }) => {
     case SIGNUP_USER:
       return user;
     case SIGNOUT_USER:
+      return user;
+    case CHECK_SIGNED_IN:
       return user;
     default:
       return state;

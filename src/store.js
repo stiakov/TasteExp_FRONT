@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './redux/indexReducer';
 
 const initState = {
-  user: {},
+  user: false,
   error: {},
   filter: 'All',
 };

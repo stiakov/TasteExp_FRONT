@@ -6,10 +6,11 @@ const Login = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [remember, setRemember] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const user = { email, password };
+    const user = { email, password, remember };
     dispatch(loginUser(user));
     return user;
   };
@@ -41,6 +42,16 @@ const Login = () => {
             placeholder="Password"
             autoComplete="password"
             required
+          />
+        </label>
+        <label htmlFor="remember_me">
+          <input
+            id="remember_me"
+            label="remember_me"
+            type="checkbox"
+            name="remember_me"
+            onChange={(event) => setRemember(event.target.checked)}
+            checked={remember}
           />
         </label>
         <button type="submit" style={undefined}>Sign in!</button>

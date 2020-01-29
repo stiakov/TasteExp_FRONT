@@ -11,9 +11,11 @@ const loginUser = (user) => (dispatch) => axios.post(`${BASE_URL}/sign_in`, user
   .then((response) => {
     dispatch({
       type: LOGIN_USER,
-      user: response.data.data,
+      user: { current: response.data.data, headers: response.headers },
     });
-    localStorage.setItem('headers', JSON.stringify(response.headers));
+    if (user.remember) {
+      localStorage.setItem('user', JSON.stringify({ current: response.data.data, headers: response.headers }));
+    }
   }, (error) => {
     dispatch({
       type: ERROR_LOG,
@@ -29,30 +31,45 @@ const signupUser = (user) => (dispatch) => axios.post(`${BASE_URL}/`, user)
       type: SIGNUP_USER,
       user: response.data.data,
     });
-    localStorage.setItem('user', response.data.data);
-    localStorage.setItem('headers', JSON.stringify(response.headers));
+    localStorage.setItem('user', JSON.stringify({ current: response.data.data, headers: response.headers }));
   }, (error) => errorLogger(error, dispatch));
 
 const SIGNOUT_USER = 'SIGNOUT_USER';
 
-const signoutUser = () => (dispatch) => {
-  const headers = { headers: JSON.parse(localStorage.getItem('headers')) };
-  return axios.delete(`${BASE_URL}/sign_out`, headers)
-    .then((response) => {
-      console.log('response ', response)
+const signoutUser = (currentUser = false) => (dispatch) => {
+  const user = { headers: currentUser || JSON.parse(localStorage.getItem('user')) };
+  return axios.delete(`${BASE_URL}/sign_out`, user.headers)
+    .then(() => {
+      localStorage.removeItem('user');
       dispatch({
         type: SIGNOUT_USER,
         user: false,
       });
-      localStorage.setItem('headers', '');
     }, (error) => errorLogger(error, dispatch));
+};
+
+const CHECK_SIGNED_IN = 'CHECK_SIGNED_IN';
+
+const checkSignedIn = (currentUser = false, dispatch) => {
+  let tokens = false;
+  if (localStorage.user || currentUser) {
+    const user = currentUser || JSON.parse(localStorage.user);
+    tokens = user.headers;
+    dispatch({
+      type: CHECK_SIGNED_IN,
+      user,
+    });
+  }
+  return tokens;
 };
 
 export {
   loginUser,
   signupUser,
   signoutUser,
+  checkSignedIn,
   LOGIN_USER,
   SIGNUP_USER,
   SIGNOUT_USER,
+  CHECK_SIGNED_IN,
 };
