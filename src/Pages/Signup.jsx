@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { signupUser } from '../redux/actions/authActions';
+import { signupUser } from '../redux/authActions';
 
 const Login = () => {
   const dispatch = useDispatch();

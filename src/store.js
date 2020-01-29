@@ -1,10 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './redux/reducers/index';
+import rootReducer from './redux/indexReducer';
 
 const initState = {
   user: {},
+  error: {},
   filter: 'All',
 };
 
