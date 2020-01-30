@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [remember, setRemember] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     const user = { email, password, remember };
     dispatch(loginUser(user));
@@ -25,7 +25,7 @@ const Login = () => {
             type="text"
             name="email"
             value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={event => setEmail(event.target.value)}
             placeholder="E-Mail"
             autoComplete="email"
             required
@@ -38,7 +38,7 @@ const Login = () => {
             type="password"
             name="password"
             value={password}
-            onChange={(event) => setPassword(event.target.value)}
+            onChange={event => setPassword(event.target.value)}
             placeholder="Password"
             autoComplete="password"
             required
@@ -50,7 +50,7 @@ const Login = () => {
             label="remember_me"
             type="checkbox"
             name="remember_me"
-            onChange={(event) => setRemember(event.target.checked)}
+            onChange={event => setRemember(event.target.checked)}
             checked={remember}
           />
         </label>
@@ -60,6 +60,6 @@ const Login = () => {
   );
 };
 
-const mapStateToProps = (state) => ({ user: state.user });
+const mapStateToProps = state => ({ user: state.user });
 
 export default connect(mapStateToProps, null)(Login);

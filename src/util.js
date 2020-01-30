@@ -1,4 +1,4 @@
-const checkSignedIn = (currentUser) => {
+const checkSignedIn = currentUser => {
   let tokens = false;
   if (localStorage.user) {
     tokens = JSON.parse(localStorage.user).headers;

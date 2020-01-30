@@ -10,9 +10,14 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [password_confirmation, setPasswordConfirmation] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
-    const user = { name, email, password, password_confirmation };
+    const user = {
+      name,
+      email,
+      password,
+      password_confirmation,
+    };
     dispatch(signupUser(user));
     return user;
   };
@@ -27,7 +32,7 @@ const Login = () => {
             type="text"
             name="name"
             value={name}
-            onChange={(event) => setName(event.target.value)}
+            onChange={event => setName(event.target.value)}
             placeholder="Full Name"
             autoComplete="name"
             required
@@ -40,7 +45,7 @@ const Login = () => {
             type="text"
             name="email"
             value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            onChange={event => setEmail(event.target.value)}
             placeholder="E-Mail"
             autoComplete="password"
             required
@@ -53,7 +58,7 @@ const Login = () => {
             type="password"
             name="password"
             value={password}
-            onChange={(event) => setPassword(event.target.value)}
+            onChange={event => setPassword(event.target.value)}
             placeholder="Password"
             autoComplete="new-password"
             required
@@ -66,7 +71,7 @@ const Login = () => {
             type="password"
             name="password_confirmation"
             value={password_confirmation}
-            onChange={(event) => setPasswordConfirmation(event.target.value)}
+            onChange={event => setPasswordConfirmation(event.target.value)}
             placeholder="Password Confirmation"
             autoComplete="new-password"
             required
@@ -78,6 +83,6 @@ const Login = () => {
   );
 };
 
-const mapStateToProps = (state) => ({ user: state.user });
+const mapStateToProps = state => ({ user: state.user });
 
 export default connect(mapStateToProps, null)(Login);
