@@ -8,7 +8,7 @@ const Routes = ({ user }) => {
   const dispatch = useDispatch();
   return (
     <Switch>
-      <Route exact path="/landing" component={Pages.Landing} />
+      <Route exact path="/" component={Pages.Home} />
     </Switch>
   );
 };

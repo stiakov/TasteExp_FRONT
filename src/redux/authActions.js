@@ -54,10 +54,22 @@ const signoutUser = (currentUser = false) => (dispatch) => {
 const CHECK_SIGNED_IN = 'CHECK_SIGNED_IN';
 
 const checkSignedIn = (currentUser = false, dispatch) => {
+  let user = {};
   let tokens = false;
+
   if (localStorage.user || sessionStorage.user || currentUser) {
-    const user = currentUser || JSON.parse(sessionStorage.user) || JSON.parse(localStorage.user);
-    tokens = user.headers;
+    if (typeof localStorage.user === 'string' && localStorage.user.length > 0) {
+      user = JSON.parse(localStorage.user);
+    }
+
+    if (typeof sessionStorage.user === 'string' && sessionStorage.user.length > 0) {
+      user = JSON.parse(sessionStorage.user);
+    }
+
+    if (currentUser) user = currentUser;
+
+    tokens = user.headers || false;
+
     dispatch({
       type: CHECK_SIGNED_IN,
       user,

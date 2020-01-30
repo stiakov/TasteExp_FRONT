@@ -14,5 +14,5 @@ body {
 
 .App {
     display: flex;
-    align-content: center;
+    flex-flow: column;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import Login from './Login';
 import Signup from './Signup';
 
-const Landing = () => (
+const Home = () => (
   <div>
     LOGIN
     <Login />
@@ -11,4 +11,4 @@ const Landing = () => (
   </div>
 );
 
-export default Landing;
+export default Home;
