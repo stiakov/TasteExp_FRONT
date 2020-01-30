@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
-import React, {useState} from 'react';
-import {connect, useDispatch} from 'react-redux';
-import {signupUser} from '../redux/authActions';
+import React, { useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { signupUser } from '../redux/authActions';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -83,6 +83,6 @@ const Login = () => {
   );
 };
 
-const mapStateToProps = state => ({user: state.user});
+const mapStateToProps = state => ({ user: state.user });
 
 export default connect(mapStateToProps, null)(Login);

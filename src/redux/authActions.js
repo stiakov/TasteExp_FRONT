@@ -8,7 +8,7 @@ const BASE_URL = 'http://localhost:3000/auth';
 const LOGIN_USER = 'LOGIN_USER';
 
 const loginUser = user => dispatch => axios.post(`${BASE_URL}/sign_in`, user)
-  .then(response => {
+  .then((response) => {
     dispatch({
       type: LOGIN_USER,
       user: { current: response.data.data, headers: response.headers },
@@ -18,7 +18,7 @@ const loginUser = user => dispatch => axios.post(`${BASE_URL}/sign_in`, user)
     } else {
       sessionStorage.setItem('user', JSON.stringify({ current: response.data.data, headers: response.headers }));
     }
-  }, error => {
+  }, (error) => {
     dispatch({
       type: ERROR_LOG,
       error,
@@ -28,7 +28,7 @@ const loginUser = user => dispatch => axios.post(`${BASE_URL}/sign_in`, user)
 const SIGNUP_USER = 'SIGNUP_USER';
 
 const signupUser = user => dispatch => axios.post(`${BASE_URL}/`, user)
-  .then(response => {
+  .then((response) => {
     sessionStorage.setItem('user', JSON.stringify({ current: response.data.data, headers: response.headers }));
     dispatch({
       type: SIGNUP_USER,
@@ -38,7 +38,7 @@ const signupUser = user => dispatch => axios.post(`${BASE_URL}/`, user)
 
 const SIGNOUT_USER = 'SIGNOUT_USER';
 
-const signoutUser = (currentUser = false) => dispatch => {
+const signoutUser = (currentUser = false) => (dispatch) => {
   const user = { headers: currentUser || JSON.parse(localStorage.getItem('user')) };
   return axios.delete(`${BASE_URL}/sign_out`, user.headers)
     .then(() => {
