@@ -11,16 +11,9 @@ const Nav = ({ user }) => {
   if (checkSignedIn(user, dispatch)) {
     navTemplate = (
       <div>
-        <Link to="/">HOME</Link>
+        <Link to="/landing">HOME</Link>
+        { ' ' }
         <Link to="/logout" onClick={handleLogout}>LOGOUT</Link>
-      </div>
-    );
-  } else {
-    navTemplate = (
-      <div>
-        <Link to="/">HOME</Link>
-        <Link to="/login">LOGIN</Link>
-        <Link to="/signup">SIGNUP</Link>
       </div>
     );
   }
