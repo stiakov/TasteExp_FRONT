@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [remember, setRemember] = useState('');
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const user = { email, password, remember };
     dispatch(loginUser(user));
@@ -19,6 +19,7 @@ const Login = () => {
     <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">
+          <small>Email</small>
           <input
             id="email"
             label="email"
@@ -31,7 +32,9 @@ const Login = () => {
             required
           />
         </label>
+        <br />
         <label htmlFor="password">
+          <small>Password</small>
           <input
             id="password"
             label="password"
@@ -44,7 +47,9 @@ const Login = () => {
             required
           />
         </label>
+        <br />
         <label htmlFor="remember_me">
+          <small>Remember me</small>
           <input
             id="remember_me"
             label="remember_me"
@@ -54,6 +59,7 @@ const Login = () => {
             checked={remember}
           />
         </label>
+        <br />
         <button type="submit" style={undefined}>Sign in!</button>
       </form>
     </div>

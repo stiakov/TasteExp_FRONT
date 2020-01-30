@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,500&display=swap');
 
+html {
+}
+
 body {
     margin: 0;
     font-family: 'Poppins', 'Helvetica Neue', sans-serif;
@@ -7,4 +10,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: #F7F8FA;
     color: #555A64;
+}
+
+.App {
+    display: flex;
+    align-content: center;
 }
