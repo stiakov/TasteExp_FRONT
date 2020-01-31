@@ -1,8 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,500&display=swap');
-
-html {
-}
-
 body {
     margin: 0;
     font-family: 'Poppins', 'Helvetica Neue', sans-serif;
@@ -24,4 +20,32 @@ body {
 
 .absolute {
     position: absolute;
+}
+
+.item-nav:hover {
+    background-color: #F9F9F9 !important;
+    border-bottom: 2px solid #1b1c1d !important;
+}
+
+.fullScreen {
+    height: 120%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    background: #00b09b;
+    background: -webkit-linear-gradient(to bottom, #00b09b, #96c93d);
+    background: linear-gradient(to bottom, #00b09b, #96c93d);
+    overflow: hidden;
+    transition: 0.5s;
+    top: -12px;
+    left: 0;
+
+    background: url('./images/pizza.gif') center center no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width: 600px) {
+    .start {
+        font-size: 8vw !important;
+    }
 }

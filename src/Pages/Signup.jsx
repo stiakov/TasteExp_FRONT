@@ -24,12 +24,12 @@ const Login = (props) => {
   };
 
   return (
-    <div className="ui container">
+    <div className="ui raised very padded text container segment">
       <h2 className="ui center aligned icon header">
         <i className="address card icon" />
         <div className="content">
           Taste Explorer
-          <div className="sub header">Sign Up</div>
+          <div className="sub header">Welcome on board!</div>
         </div>
       </h2>
 
@@ -94,7 +94,7 @@ const Login = (props) => {
             />
           </label>
         </div>
-        <button type="submit" className="ui fluid teal button">Sign Up!</button>
+        <button type="submit" className="ui fluid olive button">Sign Up!</button>
       </form>
     </div>
   );

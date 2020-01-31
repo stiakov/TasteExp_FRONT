@@ -1,36 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import gifLand from '../images/gifLandd.gif';
 
 const landingStyles = {
   landingContainer: 'ui column centered grid',
-  startButton: 'start ui pink button',
-  loginLink: 'ui tiny purple button',
+  startButton: 'ui olive button',
+  loginLink: 'ui black button',
   discoverHeader: 'absolute start ui header',
   discover: {
     color: '#374141',
-    fontSize: '2em',
+    fontSize: '3.5em',
     textShadow: 'black 1px 0 10px',
-    top: '9em',
-    left: 'auto',
+    textAlign: 'left',
+    top: '12vh',
+    left: '5vw',
   },
   letsFind: {
     color: '#374141',
-    fontSize: '2em',
+    fontSize: '3.5em',
+    textAlign: 'left',
     textShadow: 'black 1px 0 10px',
-    top: '9.5em',
-    left: 'auto',
+    top: '18vh',
+    left: '5vw',
+    width: 'inherit',
   },
   start: {
-    top: '10em',
+    top: '72vh',
     left: '50vw',
   },
   positionBtn: {
     position: 'absolute',
-    top: '90vh',
+    top: '72vh',
   },
   posSignin: {
-    top: '91vh',
+    top: '74vh',
   },
 };
 
@@ -46,11 +48,10 @@ const {
 } = landingStyles;
 
 const Landing = () => (
-  <div className="relative">
+  <div className="relative fullScreen">
     <div className={landingContainer}>
       <div style={discover} className={discoverHeader}>Discover your next meal.</div>
       <div style={letsFind} className={discoverHeader}>{'Let\'s find it!'}</div>
-      <img src={gifLand} alt="" className="img-landing" />
       <div style={positionBtn}>
         <Link to="/signup">
           <button type="submit" className={startButton}>Start</button>
