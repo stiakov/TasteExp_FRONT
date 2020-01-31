@@ -32,14 +32,13 @@ body {
     width: 100%;
     position: fixed;
     z-index: 1;
-    background: #00b09b;
-    background: -webkit-linear-gradient(to bottom, #00b09b, #96c93d);
-    background: linear-gradient(to bottom, #00b09b, #96c93d);
     overflow: hidden;
     transition: 0.5s;
-    top: -12px;
+    top: 0;
     left: 0;
+}
 
+.bgLanding {
     background: url('./images/pizza.gif') center center no-repeat;
     background-size: cover;
 }
@@ -48,4 +47,19 @@ body {
     .start {
         font-size: 8vw !important;
     }
+}
+
+.bgLogin {
+    background: url('./images/giphy1.gif') center center no-repeat;
+    background-size: cover;   
+}
+
+.bgSignup {
+    background: url('./images/giphy2.gif') center center no-repeat;
+    background-size: cover;   
+}
+
+.trans {
+    background-color: rgba(255,255,255,.85) !important;
+    top: 10vh;
 }

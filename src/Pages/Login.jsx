@@ -17,65 +17,67 @@ const Login = (props) => {
   };
 
   return (
-    <div className="ui raised very padded text container segment">
-      <h2 className="ui center aligned icon header">
-        <i className="key icon" />
-        <div className="content">
-          Taste Explorer
-          <div className="sub header">Hey hey!</div>
-        </div>
-      </h2>
+    <div className="fullScreen bgLogin">
+      <div className="ui raised very padded text container segment trans">
+        <h2 className="ui center aligned icon header">
+          <i className="key icon" />
+          <div className="content">
+            Taste Explorer
+            <div className="sub header">Hey hey!</div>
+          </div>
+        </h2>
 
-      <form onSubmit={handleSubmit} className="ui form">
-        <div className="field">
-          <label htmlFor="email">
-            Email
-            <input
-              id="email"
-              label="email"
-              type="text"
-              name="email"
-              value={email}
-              onChange={event => setEmail(event.target.value)}
-              placeholder="E-Mail"
-              autoComplete="email"
-              required
-            />
-          </label>
-        </div>
-        <div className="field">
-          <label htmlFor="password">
-            Password
-            <input
-              id="password"
-              label="password"
-              type="password"
-              name="password"
-              value={password}
-              onChange={event => setPassword(event.target.value)}
-              placeholder="Password"
-              autoComplete="password"
-              required
-            />
-          </label>
-        </div>
-        <div className="field">
-          <div className="ui checkbox">
-            <label htmlFor="remember_me">
+        <form onSubmit={handleSubmit} className="ui form">
+          <div className="field">
+            <label htmlFor="email">
+              Email
               <input
-                id="remember_me"
-                label="remember_me"
-                type="checkbox"
-                name="remember_me"
-                onChange={event => setRemember(event.target.checked)}
-                checked={remember}
-              />
-              Remember me
+                id="email"
+                label="email"
+                type="text"
+                name="email"
+                value={email}
+                onChange={event => setEmail(event.target.value)}
+                placeholder="E-Mail"
+                autoComplete="email"
+                required
+                />
             </label>
           </div>
-        </div>
-        <button type="submit" className="ui fluid black button">Go ahead!</button>
-      </form>
+          <div className="field">
+            <label htmlFor="password">
+              Password
+              <input
+                id="password"
+                label="password"
+                type="password"
+                name="password"
+                value={password}
+                onChange={event => setPassword(event.target.value)}
+                placeholder="Password"
+                autoComplete="password"
+                required
+                />
+            </label>
+          </div>
+          <div className="field">
+            <div className="ui checkbox">
+              <label htmlFor="remember_me">
+                <input
+                  id="remember_me"
+                  label="remember_me"
+                  type="checkbox"
+                  name="remember_me"
+                  onChange={event => setRemember(event.target.checked)}
+                  checked={remember}
+                />
+                Remember me
+              </label>
+            </div>
+          </div>
+          <button type="submit" className="ui fluid black button">Go ahead!</button>
+        </form>
+      </div>
     </div>
   );
 };

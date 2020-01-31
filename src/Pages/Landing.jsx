@@ -48,7 +48,7 @@ const {
 } = landingStyles;
 
 const Landing = () => (
-  <div className="relative fullScreen">
+  <div className="relative fullScreen bgLanding">
     <div className={landingContainer}>
       <div style={discover} className={discoverHeader}>Discover your next meal.</div>
       <div style={letsFind} className={discoverHeader}>{'Let\'s find it!'}</div>
