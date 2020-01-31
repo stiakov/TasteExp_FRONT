@@ -8,11 +8,20 @@ body {
     font-family: 'Poppins', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #F7F8FA;
     color: #555A64;
+    background-color: #EBEBEB;
 }
 
 .App {
+    margin-top: 1.5em;
     display: flex;
     flex-flow: column;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
 }

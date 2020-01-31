@@ -1,14 +1,18 @@
 import React from 'react';
-import Login from './Login';
-import Signup from './Signup';
+import { connect } from 'react-redux';
+import Landing from "./Landing";
 
-const Home = () => (
-  <div>
-    LOGIN
-    <Login />
-    SIGN UP
-    <Signup />
-  </div>
-);
+import { checkSignedIn } from '../redux/authActions';
 
-export default Home;
+const Home = ({ user }) => {
+
+  if (checkSignedIn(user)) {
+    return (<div>DASHBOARD</div>);
+  }
+
+  return <Landing />;
+};
+
+const mapStateToProps = state => ({ user: state.user });
+
+export default connect(mapStateToProps, null)(Home);

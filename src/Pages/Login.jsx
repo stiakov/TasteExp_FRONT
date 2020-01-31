@@ -16,51 +16,66 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">
-          <small>Email</small>
-          <input
-            id="email"
-            label="email"
-            type="text"
-            name="email"
-            value={email}
-            onChange={event => setEmail(event.target.value)}
-            placeholder="E-Mail"
-            autoComplete="email"
-            required
-          />
-        </label>
-        <br />
-        <label htmlFor="password">
-          <small>Password</small>
-          <input
-            id="password"
-            label="password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={event => setPassword(event.target.value)}
-            placeholder="Password"
-            autoComplete="password"
-            required
-          />
-        </label>
-        <br />
-        <label htmlFor="remember_me">
-          <small>Remember me</small>
-          <input
-            id="remember_me"
-            label="remember_me"
-            type="checkbox"
-            name="remember_me"
-            onChange={event => setRemember(event.target.checked)}
-            checked={remember}
-          />
-        </label>
-        <br />
-        <button type="submit" style={undefined}>Sign in!</button>
+    <div className="ui container">
+      <div>
+        <h2 className="ui center aligned icon header">
+          <i className="key icon" />
+          <div className="content">
+            Taste Explorer
+            <div className="sub header">Log In</div>
+          </div>
+        </h2>
+      </div>
+
+      <form onSubmit={handleSubmit} className="ui form">
+        <div className="field">
+          <label htmlFor="email">
+            Email
+            <input
+              id="email"
+              label="email"
+              type="text"
+              name="email"
+              value={email}
+              onChange={event => setEmail(event.target.value)}
+              placeholder="E-Mail"
+              autoComplete="email"
+              required
+            />
+          </label>
+        </div>
+        <div className="field">
+          <label htmlFor="password">
+            Password
+            <input
+              id="password"
+              label="password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={event => setPassword(event.target.value)}
+              placeholder="Password"
+              autoComplete="password"
+              required
+            />
+          </label>
+        </div>
+        <div className="field">
+          <div className="ui checkbox">
+            <label htmlFor="remember_me">
+              <input
+                id="remember_me"
+                label="remember_me"
+                type="checkbox"
+                name="remember_me"
+                onChange={event => setRemember(event.target.checked)}
+                checked={remember}
+              />
+              Remember me
+            </label>
+          </div>
+        </div>
+        <button type="submit" className="ui black button">Sign in!</button>
       </form>
     </div>
   );
