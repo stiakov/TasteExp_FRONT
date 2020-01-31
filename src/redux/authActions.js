@@ -27,7 +27,7 @@ const loginUser = user => dispatch => axios.post(`${BASE_URL}/sign_in`, user)
 
 const SIGNUP_USER = 'SIGNUP_USER';
 
-const signupUser = user => dispatch => axios.post(`${BASE_URL}/`, user)
+const signupUser = user => dispatch => axios.post(`${BASE_URL}`, user)
   .then((response) => {
     sessionStorage.setItem('user', JSON.stringify({ current: response.data.data, headers: response.headers }));
     dispatch({

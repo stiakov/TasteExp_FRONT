@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { loginUser } from '../redux/authActions';
 
-const Login = () => {
+const Login = (props) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,6 +12,7 @@ const Login = () => {
     event.preventDefault();
     const user = { email, password, remember };
     dispatch(loginUser(user));
+    props.history.push('/');
     return user;
   };
 

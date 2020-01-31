@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { signupUser } from '../redux/authActions';
 
-const Login = () => {
+const Login = (props) => {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -19,6 +19,7 @@ const Login = () => {
       password_confirmation,
     };
     dispatch(signupUser(user));
+    props.history.push('/');
     return user;
   };
 
