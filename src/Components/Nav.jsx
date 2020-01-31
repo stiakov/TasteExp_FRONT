@@ -13,7 +13,7 @@ const Nav = ({ user }) => {
       <div>
         <Link to="/">HOME</Link>
         { ' ' }
-        <Link to="/logout" onClick={handleLogout}>LOGOUT</Link>
+        <Link to="/" onClick={handleLogout}>LOGOUT</Link>
       </div>
     );
   }

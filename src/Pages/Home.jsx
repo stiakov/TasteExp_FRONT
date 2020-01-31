@@ -1,13 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import Landing from "./Landing";
+import { connect, useDispatch } from 'react-redux';
+import Landing from './Landing';
+import Dashboard from './Dashboard';
 
 import { checkSignedIn } from '../redux/authActions';
 
 const Home = ({ user }) => {
-
-  if (checkSignedIn(user)) {
-    return (<div>DASHBOARD</div>);
+  const dispatch = useDispatch();
+  if (checkSignedIn(user, dispatch)) {
+    return (<Dashboard />);
   }
 
   return <Landing />;

@@ -17,15 +17,13 @@ const Login = () => {
 
   return (
     <div className="ui container">
-      <div>
-        <h2 className="ui center aligned icon header">
-          <i className="key icon" />
-          <div className="content">
-            Taste Explorer
-            <div className="sub header">Log In</div>
-          </div>
-        </h2>
-      </div>
+      <h2 className="ui center aligned icon header">
+        <i className="key icon" />
+        <div className="content">
+          Taste Explorer
+          <div className="sub header">Log In</div>
+        </div>
+      </h2>
 
       <form onSubmit={handleSubmit} className="ui form">
         <div className="field">
@@ -75,7 +73,7 @@ const Login = () => {
             </label>
           </div>
         </div>
-        <button type="submit" className="ui black button">Sign in!</button>
+        <button type="submit" className="ui fluid yellow button">Sign in!</button>
       </form>
     </div>
   );

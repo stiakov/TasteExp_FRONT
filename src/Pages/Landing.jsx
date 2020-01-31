@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import gifLand from '../images/gifLandd.gif';
 
-
 const landingStyles = {
   landingContainer: 'ui column centered grid',
   startButton: 'start ui pink button',
@@ -33,7 +32,7 @@ const landingStyles = {
   posSignin: {
     top: '91vh',
   },
-}
+};
 
 const {
   landingContainer,
@@ -45,7 +44,6 @@ const {
   positionBtn,
   posSignin,
 } = landingStyles;
-
 
 const Landing = () => (
   <div className="relative">
