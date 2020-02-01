@@ -1,18 +1,65 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,500&display=swap');
-
-html {
-}
-
 body {
     margin: 0;
     font-family: 'Poppins', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #F7F8FA;
     color: #555A64;
+    background-color: #EBEBEB;
 }
 
 .App {
+    margin-top: 1.5em;
     display: flex;
-    align-content: center;
+    flex-flow: column;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.item-nav:hover {
+    background-color: #F9F9F9 !important;
+    border-bottom: 2px solid #1b1c1d !important;
+}
+
+.fullScreen {
+    height: 120%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.5s;
+    top: 0;
+    left: 0;
+}
+
+.bgLanding {
+    background: url('./images/pizza.gif') center center no-repeat;
+    background-size: cover;
+}
+
+@media screen and (max-width: 600px) {
+    .start {
+        font-size: 8vw !important;
+    }
+}
+
+.bgLogin {
+    background: url('./images/giphy1.gif') center center no-repeat;
+    background-size: cover;   
+}
+
+.bgSignup {
+    background: url('./images/giphy2.gif') center center no-repeat;
+    background-size: cover;   
+}
+
+.trans {
+    background-color: rgba(255,255,255,.85) !important;
+    top: 10vh;
 }

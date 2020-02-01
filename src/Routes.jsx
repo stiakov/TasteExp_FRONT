@@ -1,17 +1,15 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { connect, useDispatch } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Pages from './Pages';
-import { checkSignedIn } from './redux/authActions';
 
-const Routes = ({ user }) => {
-  const dispatch = useDispatch();
-  return (
-    <Switch>
-      <Route exact path="/landing" component={Pages.Landing} />
-    </Switch>
-  );
-};
+const Routes = () => (
+  <Switch>
+    <Route exact path="/" component={Pages.Home} />
+    <Route exact path="/Login" component={Pages.Login} />
+    <Route exact path="/signup" component={Pages.Signup} />
+  </Switch>
+);
 
 
 const mapStateToProps = state => ({ user: state.user });

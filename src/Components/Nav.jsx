@@ -8,12 +8,25 @@ const Nav = ({ user }) => {
   const handleLogout = () => dispatch(signoutUser(user));
 
   let navTemplate = '';
+
+  const changeBtnStatus = (e) => {
+    const nodeList = document.getElementsByClassName('item-nav');
+    const nodes = Array.from(nodeList);
+    nodes.forEach(item => item.classList.remove('active'));
+
+    e.target.classList.toggle('active');
+  };
+
   if (checkSignedIn(user, dispatch)) {
+
     navTemplate = (
-      <div>
-        <Link to="/landing">HOME</Link>
+      <div className="ui secondary pointing menu">
+        <Link to="/" className="item item-nav" onClick={changeBtnStatus}>HOME</Link>
+        <Link to="/login" className="item item-nav" onClick={changeBtnStatus}>TEST</Link>
         { ' ' }
-        <Link to="/logout" onClick={handleLogout}>LOGOUT</Link>
+        <div className="right menu">
+          <Link to="/" className="ui item item-nav" onClick={handleLogout}>LOGOUT</Link>
+        </div>
       </div>
     );
   }

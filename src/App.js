@@ -8,7 +8,7 @@ import Nav from './Components/Nav';
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="App ui container">
         <Router>
           <Nav />
           <Routes />
