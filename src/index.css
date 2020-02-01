@@ -63,3 +63,19 @@ body {
     background-color: rgba(255,255,255,.85) !important;
     top: 10vh;
 }
+
+.window {
+    display: flex;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.window::-webkit-scrollbar { 
+    display: none;
+}
+
+.cardex {
+    min-width: 312px !important;
+}
