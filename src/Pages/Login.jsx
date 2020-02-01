@@ -41,7 +41,7 @@ const Login = (props) => {
                 placeholder="E-Mail"
                 autoComplete="email"
                 required
-                />
+              />
             </label>
           </div>
           <div className="field">
@@ -57,7 +57,7 @@ const Login = (props) => {
                 placeholder="Password"
                 autoComplete="password"
                 required
-                />
+              />
             </label>
           </div>
           <div className="field">
