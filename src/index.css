@@ -79,6 +79,8 @@ body {
 
 .cardex {
     min-width: 312px !important;
+    border: none !important;
+    position: relative;
 }
 
 .card-image {
@@ -91,4 +93,22 @@ body {
     font-size: .7em !important;
     text-transform: uppercase;
     color: #17BEBB !important;
+}
+
+.fav {
+    position: absolute;
+    top: 8em;
+    right: 1.15em;
+    margin: 0 !important;
+    background-color: #FFF !important;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    max-width: 2.5em !important;
+    max-height: 2.5em !important;
+    text-align: center;
+}
+
+.fav-ico {
+    text-align: center;
 }

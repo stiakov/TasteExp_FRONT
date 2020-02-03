@@ -12,6 +12,9 @@ const Card = ({ name, country, city, type }) => (
       <div className="description">
         {`${city} / ${country}`}
       </div>
+      <button type="submit" className="ui circular icon button fav">
+        <i className="heart outline icon fav-ico" />
+      </button>
     </div>
   </div>
 );
