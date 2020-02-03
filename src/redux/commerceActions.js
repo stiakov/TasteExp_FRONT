@@ -13,7 +13,7 @@ const getCommerces = () => dispatch => axios.get(`${BASE_URL}/commerces/index`)
       type: GET_COMMERCES,
       commerces: response.data,
     });
-  }, (error) => errorLogger(error, dispatch));
+  }, error => errorLogger(error, dispatch));
 
 
 export { GET_COMMERCES, getCommerces };
