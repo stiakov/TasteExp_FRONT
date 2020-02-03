@@ -13,7 +13,7 @@ const Card = ({ name, country, city, type }) => (
         {`${city} / ${country}`}
       </div>
       <button type="submit" className="ui circular icon button fav">
-        <i className="heart outline icon fav-ico" />
+        <i className="heart outline icon" />
       </button>
     </div>
   </div>
