@@ -87,9 +87,8 @@ body {
     object-fit: cover;
 }
 
-.heart-button {
-    width: 1.2em;
-    height: 1.2em;
-    background-color: red !important;
-    border-radius: 50% !important;
+.type-type {
+    font-size: .7em !important;
+    text-transform: uppercase;
+    color: #17BEBB !important;
 }

@@ -7,9 +7,10 @@ const Carousel = ({ commerces }) => (
         commerces.map(({
           id,
           name,
-          email,
-          description,
-        }) => <Card key={id} name={name} email={email} description={description} />)
+          city,
+          country,
+          commerce_type,
+        }) => <Card key={id} name={name} city={city} country={country.name} type={commerce_type.name} />)
       }
   </div>
 );
