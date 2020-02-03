@@ -1,24 +1,32 @@
-import React from 'react';
-import { connect, useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import Carousel from '../Components/dashboard/Carousel';
+import { getCommerces } from '../redux/commerceActions';
 
 const Dashboard = ({ user }) => {
-
+  const dispatch = useDispatch();
+  // const data = dispatch(getCommerces());
+  useEffect(() => {
+    dispatch(getCommerces());
+  }, [dispatch]);
+  
+  const data = useSelector(state => state.commerces) || [];
+  console.log('selector data', data);
   return (
     <div>
       <h2>{user ? `Welcome ${user.current.name}` : ''}</h2>
-      <Carousel />
-      <div class="ui grid">
-        <div class="doubling eight column row">
-          <div class="column">X</div>
-          <div class="column">X</div>
-          <div class="column">X</div>
-          <div class="column">X</div>
-          <div class="column">X</div>
-          <div class="column">X</div>
-          <div class="column">X</div>
-          <div class="column">X</div>
-        </div>
+      <Carousel commerces={data} />
+      <div className="ui grid">
+        {/* <div className="doubling eight column row">
+          <div className="column">X</div>
+          <div className="column">X</div>
+          <div className="column">X</div>
+          <div className="column">X</div>
+          <div className="column">X</div>
+          <div className="column">X</div>
+          <div className="column">X</div>
+          <div className="column">X</div>
+        </div> */}
       </div>
     </div>
   );

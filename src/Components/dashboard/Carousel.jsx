@@ -1,18 +1,17 @@
 import React from 'react';
 import Card from './Card';
 
-const Carousel = () => {
+const Carousel = ({ commerces }) => {
   return (
     <div className="window ui cards">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {
+        commerces.map(({
+          id,
+          name,
+          email,
+          description,
+        }) => <Card key={id} name={name} email={email} description={description} />)
+      }
     </div>
   );
 };

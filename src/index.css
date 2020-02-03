@@ -5,7 +5,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #555A64;
-    background-color: #EBEBEB;
+    background-color: #F7F8FA !important;
 }
 
 .App {
@@ -74,8 +74,22 @@ body {
 
 .window::-webkit-scrollbar { 
     display: none;
+    -webkit-overflow-scrolling: touch;
 }
 
 .cardex {
     min-width: 312px !important;
+}
+
+.card-image {
+    max-width: 312px;
+    max-height: 130px;
+    object-fit: cover;
+}
+
+.heart-button {
+    width: 1.2em;
+    height: 1.2em;
+    background-color: red !important;
+    border-radius: 50% !important;
 }
