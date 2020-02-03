@@ -5,17 +5,16 @@ import { getCommerces } from '../redux/commerceActions';
 
 const Dashboard = ({ user }) => {
   const dispatch = useDispatch();
-  // const data = dispatch(getCommerces());
+
   useEffect(() => {
     dispatch(getCommerces());
   }, [dispatch]);
-  
-  const data = useSelector(state => state.commerces) || [];
-  console.log('selector data', data);
+
+  const commerceCollection = useSelector(state => state.commerces) || [];
   return (
     <div>
       <h2>{user ? `Welcome ${user.current.name}` : ''}</h2>
-      <Carousel commerces={data} />
+      <Carousel commerces={commerceCollection} />
       <div className="ui grid">
         {/* <div className="doubling eight column row">
           <div className="column">X</div>

@@ -1,10 +1,9 @@
 import React from 'react';
 import Card from './Card';
 
-const Carousel = ({ commerces }) => {
-  return (
-    <div className="window ui cards">
-      {
+const Carousel = ({ commerces }) => (
+  <div className="window ui cards">
+    {
         commerces.map(({
           id,
           name,
@@ -12,8 +11,7 @@ const Carousel = ({ commerces }) => {
           description,
         }) => <Card key={id} name={name} email={email} description={description} />)
       }
-    </div>
-  );
-};
+  </div>
+);
 
 export default Carousel;
