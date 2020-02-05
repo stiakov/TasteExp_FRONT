@@ -4,13 +4,16 @@ import Card from './Card';
 const Carousel = ({ commerces }) => (
   <div className="window ui cards">
     {
-        commerces.map(({
-          id,
-          name,
-          city,
-          country,
-          commerce_type,
-        }) => <Card key={id} name={name} city={city} country={country.name} type={commerce_type.name} />)
+        commerces.map((item) => (
+          <Card
+            key={item.id}
+            id={item.id}
+            name={item.commerce.name}
+            city={item.commerce.city}
+            country={item.commerce.country.name}
+            type={item.commerce.commerce_type.name}
+          />
+        ))
       }
   </div>
 );

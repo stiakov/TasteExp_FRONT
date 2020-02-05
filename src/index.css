@@ -85,7 +85,7 @@ body {
 
 .card-image {
     max-width: 312px;
-    max-height: 130px;
+    max-height: 150px;
     object-fit: cover;
 }
 
@@ -97,7 +97,7 @@ body {
 
 .fav {
     position: absolute;
-    top: 8em;
+    top: 9.35em;
     right: 1.15em;
     margin: 0 !important;
     background-color: #FFF !important;

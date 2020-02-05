@@ -7,6 +7,9 @@ const initState = {
   user: false,
   error: {},
   filter: 'All',
+  commerces: [],
+  markedFavs: [],
+  fetchedFavs: [],
 };
 
 const devTools = typeof window === 'object'
