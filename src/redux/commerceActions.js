@@ -9,11 +9,13 @@ const GET_COMMERCES = 'GET_COMMERCES';
 
 const getCommerces = () => dispatch => axios.get(`${BASE_URL}/commerces/index`)
   .then((response) => {
-    console.log(response)
     dispatch({
       type: GET_COMMERCES,
       commerces: response.data,
     });
   }, error => errorLogger(error, dispatch));
 
-export { GET_COMMERCES, getCommerces };
+export {
+  GET_COMMERCES,
+  getCommerces,
+};
