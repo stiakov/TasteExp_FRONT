@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ERROR_LOG } from './errorActions';
 import { fetchMyFavs } from './fetchFavoriteActions';
+import { getAllNoFavCommerces } from './commerceActions';
 
 const errorLogger = (error, dispatch) => dispatch({ type: ERROR_LOG, error });
 
@@ -18,6 +19,7 @@ const markAsFav = ({ id, user }) => dispatch => (
         favorite: response.data,
       });
       dispatch(fetchMyFavs(user));
+      dispatch(getAllNoFavCommerces(user.headers));
     }, error => errorLogger(error, dispatch))
 );
 
@@ -32,7 +34,8 @@ const deleteFav = ({ id, user }) => dispatch => (
         favorite: response.data,
       });
       dispatch(fetchMyFavs(user));
-  }, error => errorLogger(error, dispatch))
+      dispatch(getAllNoFavCommerces(user.headers));
+    }, error => errorLogger(error, dispatch))
 );
 
 export {

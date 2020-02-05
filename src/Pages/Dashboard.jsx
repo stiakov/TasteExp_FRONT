@@ -2,15 +2,16 @@ import React, { useEffect } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import Carousel from '../Components/dashboard/Carousel';
 import Recents from '../Components/dashboard/Recents';
-import { getCommerces } from '../redux/commerceActions';
+import { getAllNoFavCommerces } from '../redux/commerceActions';
 import { fetchMyFavs } from '../redux/fetchFavoriteActions';
 import { checkSignedIn } from '../redux/authActions';
 
 const Dashboard = ({ user }) => {
   const dispatch = useDispatch();
-  checkSignedIn(user, dispatch);
+  const currentUser = checkSignedIn(user, dispatch);
+
   useEffect(() => {
-    dispatch(getCommerces());
+    dispatch(getAllNoFavCommerces(currentUser));
     dispatch(fetchMyFavs(user));
   }, [dispatch]);
 
