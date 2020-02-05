@@ -5,7 +5,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #555A64;
-    background-color: #EBEBEB;
+    background-color: #F7F8FA !important;
 }
 
 .App {
@@ -62,4 +62,69 @@ body {
 .trans {
     background-color: rgba(255,255,255,.85) !important;
     top: 10vh;
+}
+
+.window {
+    display: flex;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.window::-webkit-scrollbar { 
+    display: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.cardex {
+    min-width: 312px !important;
+    border: none !important;
+    position: relative;
+}
+
+.card-image {
+    max-width: 312px;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.recent-image {
+    max-width: auto;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.type-type {
+    font-size: .7em !important;
+    text-transform: uppercase;
+    color: #17BEBB !important;
+}
+
+.fav {
+    position: absolute;
+    top: 9.35em;
+    right: 1.15em;
+    margin: 0 !important;
+    background-color: #FFF !important;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    max-width: 2.5em !important;
+    max-height: 2.5em !important;
+    text-align: center;
+}
+
+.recent-fav {
+    position: absolute;
+    top: 12.85em;
+    right: 1.5em;
+    margin: 0 !important;
+    background-color: #FFF !important;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    max-width: 2.5em !important;
+    max-height: 2.5em !important;
+    text-align: center;
 }

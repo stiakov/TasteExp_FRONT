@@ -23,7 +23,6 @@ const Nav = ({ user }) => {
       <div className="ui secondary pointing menu">
         <Link to="/" className="item item-nav" onClick={changeBtnStatus}>HOME</Link>
         <Link to="/login" className="item item-nav" onClick={changeBtnStatus}>TEST</Link>
-        { ' ' }
         <div className="right menu">
           <Link to="/" className="ui item item-nav" onClick={handleLogout}>LOGOUT</Link>
         </div>
