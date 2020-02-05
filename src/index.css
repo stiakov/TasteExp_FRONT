@@ -47,6 +47,10 @@ body {
     .start {
         font-size: 8vw !important;
     }
+    .hidden {
+        display: none;
+        text-align: center !important;
+    }
 }
 
 .bgLogin {
@@ -127,4 +131,8 @@ body {
     max-width: 2.5em !important;
     max-height: 2.5em !important;
     text-align: center;
+}
+
+.commerce-name {
+    padding-left: 1rem;
 }
