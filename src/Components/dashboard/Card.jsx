@@ -15,11 +15,6 @@ const Card = ({
   const handleFavClick = (event) => {
     event.preventDefault();
     dispatch(deleteFav({ id, user }));
-    const str = event.target.id.split('-');
-    const idBtn = str.length > 1 ? str[1] : str[0];
-    const heartIcon = document.getElementById(`favBtn-${idBtn}`);
-    heartIcon.classList.toggle('red');
-    heartIcon.classList.toggle('outline');
   };
 
   return (
