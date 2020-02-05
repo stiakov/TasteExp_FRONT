@@ -89,6 +89,12 @@ body {
     object-fit: cover;
 }
 
+.recent-image {
+    max-width: auto;
+    max-height: 200px;
+    object-fit: cover;
+}
+
 .type-type {
     font-size: .7em !important;
     text-transform: uppercase;
@@ -99,6 +105,20 @@ body {
     position: absolute;
     top: 9.35em;
     right: 1.15em;
+    margin: 0 !important;
+    background-color: #FFF !important;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    max-width: 2.5em !important;
+    max-height: 2.5em !important;
+    text-align: center;
+}
+
+.recent-fav {
+    position: absolute;
+    top: 12.85em;
+    right: 1.5em;
     margin: 0 !important;
     background-color: #FFF !important;
     -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;

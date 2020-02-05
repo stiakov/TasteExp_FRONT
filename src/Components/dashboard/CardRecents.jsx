@@ -3,7 +3,7 @@ import { connect, useDispatch } from 'react-redux';
 import citric from '../../images/motor.jpeg';
 import { markAsFav, deleteFav } from '../../redux/favoriteActions';
 
-const Card = ({
+const CardRecents = ({
   id,
   name,
   country,
@@ -12,21 +12,26 @@ const Card = ({
   user,
 }) => {
   const dispatch = useDispatch();
-  const handleFavClick = (event) => {
-    event.preventDefault();
-    dispatch(deleteFav({ id, user }));
+  const handleFavClick = (e) => {
+    e.preventDefault();
+    dispatch(markAsFav({ id, user }));
+    const str = e.target.id.split('-');
+    const idBtn = str.length > 1 ? str[1] : str[0];
+    const heartIcon = document.getElementById(`favTopBtn-${idBtn}`);
+    heartIcon.classList.add('red');
+    heartIcon.classList.remove('outline');
   };
 
   const handleHover = (e) => {
     const str = e.target.id.split('-');
     const idBtn = str.length > 1 ? str[1] : str[0];
-    const heartIcon = document.getElementById(`favBtn-${idBtn}`);
-    heartIcon.classList.toggle('red');
+    const heartIcon = document.getElementById(`favTopBtn-${idBtn}`);
+    heartIcon.classList.toggle('outline');
   };
 
   return (
-    <div className="ui card cardex">
-      <img className="card-image" src={citric} alt="snapshot" />
+    <div className="ui card column">
+      <img className="recent-image" src={citric} alt="snapshot" />
       <div className="content">
         <div className="header">
           {name}
@@ -41,9 +46,9 @@ const Card = ({
           onClick={handleFavClick}
           onMouseEnter={handleHover}
           onMouseLeave={handleHover}
-          className="ui circular icon button fav"
+          className="ui circular icon button recent-fav"
         >
-          <i id={`favBtn-${id}`} className="heart red icon" />
+          <i id={`favTopBtn-${id}`} className="heart outline icon" />
         </button>
       </div>
     </div>
@@ -51,4 +56,4 @@ const Card = ({
 };
 
 const mapStateToProps = state => ({ user: state.user });
-export default connect(mapStateToProps, null)(Card);
+export default connect(mapStateToProps, null)(CardRecents);

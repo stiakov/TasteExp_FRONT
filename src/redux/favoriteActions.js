@@ -12,10 +12,13 @@ const markAsFav = ({ id, user }) => dispatch => (
   axios.post(`${BASE_URL}/favorites/create`,
     { commerce_id: id, user_id: user.current.id },
     { headers: user.headers })
-    .then((response) => dispatch({
-      type: MARK_AS_FAV,
-      favorite: response.data,
-    }), error => errorLogger(error, dispatch))
+    .then((response) => {
+      dispatch({
+        type: MARK_AS_FAV,
+        favorite: response.data,
+      });
+      dispatch(fetchMyFavs(user));
+    }, error => errorLogger(error, dispatch))
 );
 
 const DELETE_FAV = 'DELETE_FAV';
