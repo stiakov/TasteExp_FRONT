@@ -4,7 +4,7 @@ import Card from './Card';
 const Carousel = ({ commerces }) => (
   <div className="window ui cards">
     {
-        commerces.map((item) => (
+        commerces.map(item => (
           <Card
             key={item.id}
             id={item.id}

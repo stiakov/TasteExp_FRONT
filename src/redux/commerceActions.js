@@ -19,14 +19,14 @@ const getCommerces = () => dispatch => (
 
 const ALL_NO_FAVS = 'ALL_NO_FAVS';
 
-const getAllNoFavCommerces = (user) => dispatch => (
+const getAllNoFavCommerces = user => dispatch => (
   axios.get(`${BASE_URL}/commerces/notsaved`, { headers: user })
     .then((response) => {
       dispatch({
         type: ALL_NO_FAVS,
         commerces: response.data,
       });
-    }, error => errorLogger(user, dispatch))
+    }, error => errorLogger(error, dispatch))
 );
 
 export {

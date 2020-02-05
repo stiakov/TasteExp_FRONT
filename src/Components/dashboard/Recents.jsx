@@ -4,7 +4,7 @@ import CardRecents from './CardRecents';
 const Recents = ({ recents }) => (
   <div className="ui three doubling cards">
     {
-      recents.map((item) => (
+      recents.map(item => (
         <CardRecents
           key={item.id}
           id={item.id}

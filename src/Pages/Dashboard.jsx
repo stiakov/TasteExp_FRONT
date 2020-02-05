@@ -21,13 +21,11 @@ const Dashboard = ({ user }) => {
 
   return (
     <div>
-      <h2>{user ? `Welcome ${user.current.name}` : ''}</h2>
-      
-      <Carousel commerces={favoritesCollection} />
-     {/* <h4 className="ui horizontal divider header">
-      <i className="tag icon" />
-      Recents
-    </h4> */}
+      <h2>{favoritesCollection.length === 0 ? `Welcome ${user.current.name}` : 'Your Favorites'}</h2>
+      { favoritesCollection.length > 0
+        ? <Carousel commerces={favoritesCollection} />
+        : <div />}
+
       <div className="ui section divider" />
       <h2>Top based on your location</h2>
       <Recents recents={recentCollection} />

@@ -43,4 +43,4 @@ export {
   markAsFav,
   DELETE_FAV,
   deleteFav,
-}
+};

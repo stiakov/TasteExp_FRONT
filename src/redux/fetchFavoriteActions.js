@@ -9,7 +9,7 @@ const FETCH_MY_FAVS = 'FETCH_MY_FAVS';
 
 const fetchMyFavs = ({ headers }) => dispatch => (
   axios.get(`${BASE_URL}/favorites/user`, { headers })
-    .then((response) => dispatch({
+    .then(response => dispatch({
       type: FETCH_MY_FAVS,
       favorite: response.data,
     }), error => errorLogger(error, dispatch))
