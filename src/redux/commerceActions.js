@@ -19,8 +19,8 @@ const getAllCommerces = () => dispatch => (
 
 const GET_ONE_COMMERCE = 'GET_ONE_COMMERCE';
 
-const getOneCommerce = () => dispatch => (
-  axios.get(`${BASE_URL}/commerces/index`)
+const getOneCommerce = (idComm) => dispatch => (
+  axios.get(`${BASE_URL}/commerces/show/${idComm}`)
     .then((response) => {
       dispatch({
         type: GET_ONE_COMMERCE,
