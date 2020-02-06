@@ -3,13 +3,61 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './redux/indexReducer';
 
+const templateShowOne = {
+  id: 0,
+  name: undefined,
+  description: undefined,
+  state: undefined,
+  city: undefined,
+  address: undefined,
+  landline: undefined,
+  mobile: undefined,
+  email: undefined,
+  website: undefined,
+  instagram: undefined,
+  commerce_type: {
+    id: 0,
+    name: undefined,
+  },
+  country: {
+    id: 0,
+    name: undefined,
+    region: undefined,
+  },
+  photos: [
+    {
+      id: 0,
+      image_data: undefined,
+    },
+  ],
+  user: {
+    id: 0,
+    name: undefined,
+    email: undefined,
+  },
+  reservations: [
+    {
+      id: 0,
+      seat: 0,
+      date_time: 0,
+    },
+  ],
+  favorites: [
+    {
+      id: 0,
+    },
+  ],
+};
+
 const initState = {
   user: false,
   error: {},
-  filter: 'All',
-  commerces: [],
-  markedFavs: [],
-  fetchedFavs: [],
+  commerces: {
+    all: [],
+    noFavorites: [],
+    showOne: templateShowOne,
+    favorites: [],
+  },
 };
 
 const devTools = typeof window === 'object'

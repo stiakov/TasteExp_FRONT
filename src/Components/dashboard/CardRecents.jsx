@@ -1,15 +1,17 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
-import citric from '../../images/motor.jpeg';
-import { markAsFav } from '../../redux/favoriteActions';
+import { Link } from 'react-router-dom';
+import { markAsFav, getOneCommerce } from '../../redux/commerceActions';
 
 const CardRecents = ({
   id,
+  commId,
   name,
   country,
   city,
   type,
   user,
+  photos,
 }) => {
   const dispatch = useDispatch();
   const handleFavClick = (e) => {
@@ -29,12 +31,28 @@ const CardRecents = ({
     heartIcon.classList.toggle('outline');
   };
 
+  const showCommerce = () => {
+    dispatch(getOneCommerce(commId));
+  };
+
+
   return (
     <div className="ui card column">
-      <img className="recent-image" src={citric} alt="snapshot" />
+      <img className="recent-image" src={photos[0].image_data} alt="snapshot" />
       <div className="content">
-        <div className="header">
-          {name}
+        <div
+          className="header"
+          role="button"
+          tabIndex="0"
+          onClick={showCommerce}
+          onKeyPress={() => {}}
+        >
+          <Link
+            to={`/commerce/${commId}`}
+            className="link"
+          >
+            {name}
+          </Link>
           <div className="meta type-type">{type}</div>
         </div>
         <div className="description">
@@ -48,7 +66,7 @@ const CardRecents = ({
           onMouseLeave={handleHover}
           className="ui circular icon button recent-fav"
         >
-          <i id={`favTopBtn-${id}`} className="heart outline icon" />
+          <i id={`favTopBtn-${id}`} className="heart outline icon fav-ico" />
         </button>
       </div>
     </div>

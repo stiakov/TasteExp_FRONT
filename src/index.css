@@ -13,6 +13,9 @@ body {
     display: flex;
     flex-flow: column;
 }
+.top-0 {
+    margin-top: 0;
+}
 
 .relative {
     position: relative;
@@ -46,6 +49,13 @@ body {
 @media screen and (max-width: 600px) {
     .start {
         font-size: 8vw !important;
+    }
+    .hidden {
+        display: none;
+        text-align: center !important;
+    }
+    .top-0 {
+        margin-top: 0;
     }
 }
 
@@ -115,6 +125,12 @@ body {
     text-align: center;
 }
 
+.fav-ico {
+    position: relative;
+    left: -0.1em;
+    bottom: 0;
+}
+
 .recent-fav {
     position: absolute;
     top: 12.85em;
@@ -127,4 +143,18 @@ body {
     max-width: 2.5em !important;
     max-height: 2.5em !important;
     text-align: center;
+}
+
+.commerce-name {
+    padding-left: 1rem;
+}
+
+.link {
+    cursor: pointer;
+    color: #232A38 !important;
+    text-decoration: none;
+}
+
+.close-show {
+    cursor: pointer;
 }

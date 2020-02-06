@@ -1,15 +1,17 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
-import citric from '../../images/motor.jpeg';
-import { deleteFav } from '../../redux/favoriteActions';
+import { Link } from 'react-router-dom';
+import { deleteFav, getOneCommerce } from '../../redux/commerceActions';
 
 const Card = ({
   id,
+  commId,
   name,
   country,
   city,
   type,
   user,
+  photos,
 }) => {
   const dispatch = useDispatch();
   const handleFavClick = (event) => {
@@ -17,19 +19,43 @@ const Card = ({
     dispatch(deleteFav({ id, user }));
   };
 
-  const handleHover = (e) => {
+  const getId = (e) => {
     const str = e.target.id.split('-');
-    const idBtn = str.length > 1 ? str[1] : str[0];
+    const id = str.length > 1 ? str[1] : str[0];
+    return id;
+  };
+
+  const handleHover = (e) => {
+    const idBtn = getId(e);
     const heartIcon = document.getElementById(`favBtn-${idBtn}`);
     heartIcon.classList.toggle('red');
   };
 
+  const showCommerce = () => {
+    dispatch(getOneCommerce(commId));
+  };
+
   return (
     <div className="ui card cardex">
-      <img className="card-image" src={citric} alt="snapshot" />
+      <img
+        className="card-image"
+        src={photos[0].image_data}
+        alt="snapshot"
+      />
       <div className="content">
-        <div className="header">
-          {name}
+        <div
+          className="header"
+          role="button"
+          tabIndex="0"
+          onClick={showCommerce}
+          onKeyPress={() => {}}
+        >
+          <Link
+            to={`/commerce/${commId}`}
+            className="link"
+          >
+            {name}
+          </Link>
           <div className="meta type-type">{type}</div>
         </div>
         <div className="description">
@@ -43,7 +69,7 @@ const Card = ({
           onMouseLeave={handleHover}
           className="ui circular icon button fav"
         >
-          <i id={`favBtn-${id}`} className="heart red icon" />
+          <i id={`favBtn-${id}`} className="heart red icon fav-ico" />
         </button>
       </div>
     </div>

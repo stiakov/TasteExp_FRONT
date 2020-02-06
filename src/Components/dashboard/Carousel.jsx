@@ -8,10 +8,12 @@ const Carousel = ({ commerces }) => (
           <Card
             key={item.id}
             id={item.id}
+            commId={item.commerce.id}
             name={item.commerce.name}
             city={item.commerce.city}
             country={item.commerce.country.name}
             type={item.commerce.commerce_type.name}
+            photos={item.commerce.photos}
           />
         ))
       }
