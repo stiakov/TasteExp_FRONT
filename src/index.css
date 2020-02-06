@@ -119,6 +119,12 @@ body {
     text-align: center;
 }
 
+.fav-ico {
+    position: relative;
+    left: -0.1em;
+    bottom: 0;
+}
+
 .recent-fav {
     position: absolute;
     top: 12.85em;

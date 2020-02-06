@@ -43,7 +43,7 @@ const Card = ({
           onMouseLeave={handleHover}
           className="ui circular icon button fav"
         >
-          <i id={`favBtn-${id}`} className="heart red icon" />
+          <i id={`favBtn-${id}`} className="heart red icon fav-ico" />
         </button>
       </div>
     </div>
