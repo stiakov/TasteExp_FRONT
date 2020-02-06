@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import Carousel from '../Components/dashboard/Carousel';
 import Recents from '../Components/dashboard/Recents';
-import { getAllNoFavCommerces } from '../redux/commerceActions';
-import { fetchMyFavs } from '../redux/fetchFavoriteActions';
+import { getAllNoFavCommerces, fetchMyFavs } from '../redux/commerceActions';
 import { checkSignedIn } from '../redux/authActions';
 
-const Dashboard = ({ user }) => {
+const Dashboard = ({ user, commerces }) => {
   const dispatch = useDispatch();
   const currentUser = checkSignedIn(user, dispatch);
+  const { favorites, noFavorites } = commerces;
 
   useEffect(() => {
     dispatch(getAllNoFavCommerces(currentUser));
@@ -16,22 +16,22 @@ const Dashboard = ({ user }) => {
   }, [dispatch]);
 
 
-  const favoritesCollection = useSelector(state => state.fetchedFavs) || [];
-  const recentCollection = useSelector(state => state.commerces) || [];
-
   return (
     <div>
-      <h2>{favoritesCollection.length === 0 ? `Welcome ${user.current.name}` : 'Your Favorites'}</h2>
-      { favoritesCollection.length > 0
-        ? <Carousel commerces={favoritesCollection} />
+      <h2>{favorites.length === 0 ? `Welcome ${user.current.name}` : 'Your Favorites'}</h2>
+      { favorites.length > 0
+        ? <Carousel commerces={favorites} />
         : <div />}
 
       <div className="ui section divider" />
       <h2>Top based on your location</h2>
-      <Recents recents={recentCollection} />
+      <Recents recents={noFavorites} />
     </div>
   );
 };
 
-const mapStateToProps = state => ({ user: state.user });
+const mapStateToProps = state => ({
+  user: state.user,
+  commerces: state.commerces,
+});
 export default connect(mapStateToProps, null)(Dashboard);

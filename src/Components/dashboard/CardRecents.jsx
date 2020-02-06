@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
 import citric from '../../images/motor.jpeg';
-import { markAsFav } from '../../redux/favoriteActions';
+import { markAsFav } from '../../redux/commerceActions';
 
 const CardRecents = ({
   id,

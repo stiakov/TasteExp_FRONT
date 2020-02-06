@@ -5,15 +5,15 @@ import IndexData from '../Components/commerce/IndexData';
 const Commerce = () => {
   return (
     <div>
-      <div className="ui hidden divider"></div>
+      <div className="ui hidden divider" />
       <h1 className="header commerce-name">Commerce Name</h1>
       <div className="ui two column doubling stackable grid container">
         <div className="twelve wide column">
-          <img className="ui fluid image" src={giphy} alt="comm-image"/>
+          <img className="ui fluid image" src={giphy} alt="place view" />
         </div>
         <div className="four wide column">
           
-          <IndexData
+          {/* <IndexData
             name={}
             description={}
             country={}
@@ -26,7 +26,7 @@ const Commerce = () => {
             website={}
             instagram={}
             commerceType={}
-          />
+          /> */}
         </div>
       </div>
     </div>
