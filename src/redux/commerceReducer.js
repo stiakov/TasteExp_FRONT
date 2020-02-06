@@ -1,11 +1,21 @@
-import { GET_COMMERCES, ALL_NO_FAVS } from './commerceActions';
+import { GET_ALL_COMMERCES, GET_ONE_COMMERCE, ALL_NO_FAVS, MARK_AS_FAV, DELETE_FAV, FETCH_MY_FAVS } from './commerceActions';
 
-const commerceReducer = (state = [], { type, commerces }) => {
+const commerceReducer = (state = [], { type, payload }) => {
   switch (type) {
-    case GET_COMMERCES:
-      return commerces;
+    case GET_ALL_COMMERCES:
+      return { ...state, all: payload };
+    case GET_ONE_COMMERCE:
+      return { ...state, showOne: payload };
     case ALL_NO_FAVS:
-      return commerces;
+      return { ...state, noFavorites: payload };
+    case FETCH_MY_FAVS:
+      return { ...state, favorites: payload };
+    case MARK_AS_FAV:
+      console.log(payload)
+      return { ...state, favorites: [payload, ...state.favorites] };
+    case DELETE_FAV:
+      console.log(payload)
+      return { ...state, favorites: state.favorites.filter(item => item !== payload) };
     default:
       return state;
   }
