@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
@@ -18,7 +19,6 @@ const IndexData = ({ data }) => {
     favorites,
   } = data;
   if (data.name) {
-
     return (
       <div className="ui centered card">
         <div className="content">

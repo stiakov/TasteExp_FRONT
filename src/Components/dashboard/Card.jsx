@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -50,6 +48,7 @@ const Card = ({
           role="button"
           tabIndex="0"
           onClick={showCommerce}
+          onKeyPress={() => {}}
         >
           <Link
             to={`/commerce/${commId}`}

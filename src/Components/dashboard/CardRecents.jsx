@@ -45,6 +45,7 @@ const CardRecents = ({
           role="button"
           tabIndex="0"
           onClick={showCommerce}
+          onKeyPress={() => {}}
         >
           <Link
             to={`/commerce/${commId}`}
