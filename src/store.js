@@ -6,10 +6,12 @@ import rootReducer from './redux/indexReducer';
 const initState = {
   user: false,
   error: {},
-  filter: 'All',
-  commerces: [],
-  markedFavs: [],
-  fetchedFavs: [],
+  commerces: {
+    all: [],
+    noFavorites: [],
+    showOne: {},
+    favorites: [],
+  },
 };
 
 const devTools = typeof window === 'object'
