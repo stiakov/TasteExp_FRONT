@@ -12,7 +12,6 @@ const Commerce = () => {
           <img className="ui fluid image" src={giphy} alt="place view" />
         </div>
         <div className="four wide column">
-          
           {/* <IndexData
             name={}
             description={}

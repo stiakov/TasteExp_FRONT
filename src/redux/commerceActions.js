@@ -62,7 +62,6 @@ const markAsFav = ({ id, user }) => dispatch => (
         type: MARK_AS_FAV,
         payload: response.data,
       });
-      console.log('user', user)
       dispatch(fetchMyFavs(user));
       dispatch(getAllNoFavCommerces(user));
     }, error => errorLogger(error, dispatch))
@@ -78,7 +77,6 @@ const deleteFav = ({ id, user }) => dispatch => (
         type: DELETE_FAV,
         payload: response.data,
       });
-      console.log('user', user)
       dispatch(fetchMyFavs(user));
       dispatch(getAllNoFavCommerces(user));
     }, error => errorLogger(error, dispatch))

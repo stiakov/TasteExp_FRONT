@@ -1,13 +1,17 @@
 import React from 'react';
 
 const IndexData = (props) => {
+  const { description } = props;
   return (
     <div className="ui centered card">
       <div className="content">
         <div className="center aligned header">Cute Dog</div>
         <div className="meta">2 days ago</div>
         <div className="description">
-          <p>{props.description}.</p>
+          <p>
+            {description}
+.
+          </p>
           <div className="ui list">
             <div className="item">
               <i className="users icon" />
@@ -41,7 +45,7 @@ const IndexData = (props) => {
                 121 Votes
       </div>
     </div>
-  )
+  );
 };
 
 export default IndexData;
