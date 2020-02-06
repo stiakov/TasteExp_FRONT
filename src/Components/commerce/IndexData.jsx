@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 const IndexData = ({ data }) => {
   const {
@@ -25,7 +26,7 @@ const IndexData = ({ data }) => {
             {name}
             <div className="meta type-type">{commerce_type.name}</div>
           </div>
-          <div className="meta">2 days ago</div>
+          <div className="meta">Open</div>
           <div className="description">
             <p>
               {description}
@@ -35,55 +36,55 @@ const IndexData = ({ data }) => {
               <div className="item">
                 <i className="clock outline purple icon" />
                 <div className="content">
-                {country.name}
+                  Until 22:00
                 </div>
               </div>
               <div className="item">
                 <i className="address card outline purple icon" />
                 <div className="content">
-                    {address}
+                  {address}
                 </div>
               </div>
               <div className="item">
                 <i className="mobile alternate purple icon" />
                 <div className="content">
-                    {mobile}
+                  {mobile}
                 </div>
               </div>
               <div className="item">
                 <i className="phone purple icon" />
                 <div className="content">
-                    {landline}
+                  {landline}
                 </div>
               </div>
               <div className="item">
                 <i className="map marker purple alternate icon" />
                 <div className="content">
-                    {city}
+                  {city}
                 </div>
               </div>
               <div className="item">
                 <i className="globe purple icon" />
                 <div className="content">
-                    {`${state} - ${country.name}`}
+                  {`${state} - ${country.name}`}
                 </div>
               </div>
               <div className="item">
                 <i className="at purple icon" />
                 <div className="content">
-    <a href={`mailto:${email}`}>{email}</a>
+                  <a href={`mailto:${email}`}>{email}</a>
                 </div>
               </div>
               <div className="item">
                 <i className="linkify purple icon" />
                 <div className="content">
-    <a href={website}>{website}</a>
+                  <a href={website}>{website}</a>
                 </div>
               </div>
               <div className="item">
                 <i className="instagram purple icon" />
                 <div className="content">
-    <a href={`https://www.instagram.com/${instagram}`}>{instagram}</a>
+                  <a href={`https://www.instagram.com/${instagram}`}>{instagram}</a>
                 </div>
               </div>
             </div>
@@ -91,13 +92,13 @@ const IndexData = ({ data }) => {
         </div>
         <div className="extra content">
           <i className="heart purple icon" />
-                  {`${favorites.length} likes`}
+          {`${favorites.length} likes`}
         </div>
       </div>
     );
   }
 
-  return <div />;
+  return <Redirect to="/" />;
 };
 
 export default IndexData;
