@@ -8,6 +8,7 @@ const Recents = ({ recents }) => (
         <CardRecents
           key={item.id}
           id={item.id}
+          commId={item.id}
           name={item.name}
           city={item.city}
           country={item.country.name}

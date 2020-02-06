@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { markAsFav } from '../../redux/commerceActions';
+import { Link } from 'react-router-dom';
+import { markAsFav, getOneCommerce } from '../../redux/commerceActions';
 
 const CardRecents = ({
   id,
+  commId,
   name,
   country,
   city,
@@ -29,12 +31,27 @@ const CardRecents = ({
     heartIcon.classList.toggle('outline');
   };
 
+  const showCommerce = () => {
+    dispatch(getOneCommerce(commId));
+  };
+
+
   return (
     <div className="ui card column">
       <img className="recent-image" src={photos[0].image_data} alt="snapshot" />
       <div className="content">
-        <div className="header">
-          {name}
+        <div
+          className="header"
+          role="button"
+          tabIndex="0"
+          onClick={showCommerce}
+        >
+          <Link
+            to={`/commerce/${commId}`}
+            className="link"
+          >
+            {name}
+          </Link>
           <div className="meta type-type">{type}</div>
         </div>
         <div className="description">
