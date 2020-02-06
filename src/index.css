@@ -154,3 +154,7 @@ body {
     color: #232A38 !important;
     text-decoration: none;
 }
+
+.close-show {
+    cursor: pointer;
+}

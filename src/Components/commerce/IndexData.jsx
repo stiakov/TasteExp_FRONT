@@ -17,7 +17,7 @@ const IndexData = ({ data }) => {
     commerce_type,
     favorites,
   } = data;
-  if (Object.keys(data).length) {
+  if (data.name) {
 
     return (
       <div className="ui centered card">

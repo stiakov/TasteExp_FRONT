@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
-import citric from '../../images/motor.jpeg';
 import { markAsFav } from '../../redux/commerceActions';
 
 const CardRecents = ({
@@ -10,6 +9,7 @@ const CardRecents = ({
   city,
   type,
   user,
+  photos,
 }) => {
   const dispatch = useDispatch();
   const handleFavClick = (e) => {
@@ -31,7 +31,7 @@ const CardRecents = ({
 
   return (
     <div className="ui card column">
-      <img className="recent-image" src={citric} alt="snapshot" />
+      <img className="recent-image" src={photos[0].image_data} alt="snapshot" />
       <div className="content">
         <div className="header">
           {name}

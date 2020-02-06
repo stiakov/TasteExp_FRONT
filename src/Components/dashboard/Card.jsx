@@ -3,7 +3,6 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import citric from '../../images/motor.jpeg';
 import { deleteFav, getOneCommerce } from '../../redux/commerceActions';
 
 const Card = ({
@@ -14,6 +13,7 @@ const Card = ({
   city,
   type,
   user,
+  photos,
 }) => {
   const dispatch = useDispatch();
   const handleFavClick = (event) => {
@@ -41,7 +41,7 @@ const Card = ({
     <div className="ui card cardex">
       <img
         className="card-image"
-        src={citric}
+        src={photos[0].image_data}
         alt="snapshot"
       />
       <div className="content">
