@@ -1,8 +1,6 @@
 import React from 'react';
 
 const IndexData = ({ data }) => {
-  console.log('data ->', data)
-
   const {
     name,
     description,
