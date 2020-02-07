@@ -3,6 +3,7 @@ import { connect, useDispatch } from 'react-redux';
 import Carousel from '../Components/dashboard/Carousel';
 import Recents from '../Components/dashboard/Recents';
 import { getAllNoFavCommerces, fetchMyFavs } from '../redux/commerceActions';
+import FilterSelector from '../Components/FilterSelector';
 
 const Dashboard = ({ user, commerces }) => {
   const dispatch = useDispatch();
@@ -21,7 +22,12 @@ const Dashboard = ({ user, commerces }) => {
         : <div />}
 
       <div className="ui section divider" />
-      <h2>Top based on your location</h2>
+      <div className="ui clearing segment top-head">
+        <h2 className="ui left floated header top-title">Top based on your location</h2>
+        <div className="ui right floated header top-filter">
+          <FilterSelector />
+        </div>
+      </div>
       <Recents recents={noFavorites} />
     </div>
   );
