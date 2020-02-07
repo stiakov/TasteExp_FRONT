@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteFav, getOneCommerce } from '../../redux/commerceActions';
 
@@ -14,9 +14,11 @@ const Card = ({
   photos,
 }) => {
   const dispatch = useDispatch();
+  const filter = useSelector(state => state.filters);
+
   const handleFavClick = (event) => {
     event.preventDefault();
-    dispatch(deleteFav({ id, user }));
+    dispatch(deleteFav({ id, user, filter: filter.current }));
   };
 
   const getId = (e) => {

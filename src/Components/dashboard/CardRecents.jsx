@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { markAsFav, getOneCommerce } from '../../redux/commerceActions';
 
@@ -14,9 +14,10 @@ const CardRecents = ({
   photos,
 }) => {
   const dispatch = useDispatch();
+  const filter = useSelector(state => state.filters);
   const handleFavClick = (e) => {
     e.preventDefault();
-    dispatch(markAsFav({ id, user }));
+    dispatch(markAsFav({ id, user, filter: filter.current }));
     const str = e.target.id.split('-');
     const idBtn = str.length > 1 ? str[1] : str[0];
     const heartIcon = document.getElementById(`favTopBtn-${idBtn}`);
