@@ -35,7 +35,7 @@ const FilterSelector = ({ all }) => {
             all ? all.map(item => (
               <div key={item.id} id={item.id} className="item">
                 <i className="angle right purple icon" />
-                {` ${item.name}`}
+                {item.name}
               </div>
             ))
               : <div />
