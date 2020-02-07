@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import Carousel from '../Components/dashboard/Carousel';
 import Recents from '../Components/dashboard/Recents';
-import { getAllNoFavCommerces, fetchMyFavs } from '../redux/commerceActions';
+import { filterCommerces, fetchMyFavs } from '../redux/commerceActions';
 import FilterSelector from '../Components/FilterSelector';
 
-const Dashboard = ({ user, commerces }) => {
+const Dashboard = ({ user, commerces, filters }) => {
   const dispatch = useDispatch();
   const { favorites, noFavorites } = commerces;
 
   useEffect(() => {
-    dispatch(getAllNoFavCommerces(user));
+    dispatch(filterCommerces(user, filters.current));
     dispatch(fetchMyFavs(user));
   }, [dispatch]);
 
@@ -36,5 +36,6 @@ const Dashboard = ({ user, commerces }) => {
 const mapStateToProps = state => ({
   user: state.user,
   commerces: state.commerces,
+  filters: state.filters,
 });
 export default connect(mapStateToProps, null)(Dashboard);
