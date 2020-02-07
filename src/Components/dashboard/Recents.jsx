@@ -12,7 +12,7 @@ const Recents = ({ recents }) => (
           name={item.name}
           city={item.city}
           country={item.country.name}
-          type={item.commerce_type.name}
+          type={item.category.name}
           photos={item.photos}
         />
       ))

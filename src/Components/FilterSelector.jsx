@@ -13,7 +13,7 @@ const FilterSelector = (props) => {
   };
   return (
     <div className="ui buttons">
-      <div className="ui button">Filter</div>
+      <div className="ui button" onClick={selectorDisplay}>Filter</div>
       <div
         id="filter"
         className="ui floating dropdown icon button"

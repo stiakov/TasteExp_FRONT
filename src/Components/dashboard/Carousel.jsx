@@ -12,7 +12,7 @@ const Carousel = ({ commerces }) => (
             name={item.commerce.name}
             city={item.commerce.city}
             country={item.commerce.country.name}
-            type={item.commerce.commerce_type.name}
+            type={item.commerce.category.name}
             photos={item.commerce.photos}
           />
         ))
