@@ -5,6 +5,7 @@ import {
   MARK_AS_FAV,
   DELETE_FAV,
   FETCH_MY_FAVS,
+  FILTER_COMMERCES,
 } from './commerceActions';
 
 const commerceReducer = (state = [], { type, payload }) => {
@@ -21,6 +22,8 @@ const commerceReducer = (state = [], { type, payload }) => {
       return { ...state, favorites: [payload, ...state.favorites] };
     case DELETE_FAV:
       return { ...state, favorites: state.favorites.filter(item => item !== payload) };
+    case FILTER_COMMERCES:
+      return { ...state, noFavorites: payload };
     default:
       return state;
   }

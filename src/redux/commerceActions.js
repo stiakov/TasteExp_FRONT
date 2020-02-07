@@ -58,7 +58,22 @@ const fetchMyFavs = ({ headers }) => dispatch => (
     }, error => errorLogger(error, dispatch))
 );
 
-const markAsFav = ({ id, user }) => dispatch => (
+const FILTER_COMMERCES = 'FILTER_COMMERCES';
+
+const filterCommerces = (user, filterId = 0) => dispatch =>{
+  if (filterId === 0) return dispatch(getAllNoFavCommerces(user));
+  return (
+    axios.get(`${BASE_URL}/commerces/filter/${filterId}`, { headers: user.headers })
+      .then(response => {
+        dispatch({
+          type: FILTER_COMMERCES,
+          payload: response.data,
+        });
+      }, error => errorLogger(error, dispatch))
+  );
+};
+
+const markAsFav = ({ id, user, filter }) => dispatch => (
   axios.post(`${BASE_URL}/favorites/create`,
     { commerce_id: id, user_id: user.current.id },
     { headers: user.headers })
@@ -68,13 +83,13 @@ const markAsFav = ({ id, user }) => dispatch => (
         payload: response.data,
       });
       dispatch(fetchMyFavs(user));
-      dispatch(getAllNoFavCommerces(user));
+      dispatch(filterCommerces(user, filter));
     }, error => errorLogger(error, dispatch))
 );
 
 const DELETE_FAV = 'DELETE_FAV';
 
-const deleteFav = ({ id, user }) => dispatch => (
+const deleteFav = ({ id, user, filter }) => dispatch => (
   axios.delete(`${BASE_URL}/favorites/${id}/delete`,
     { headers: user.headers })
     .then((response) => {
@@ -83,7 +98,7 @@ const deleteFav = ({ id, user }) => dispatch => (
         payload: response.data,
       });
       dispatch(fetchMyFavs(user));
-      dispatch(getAllNoFavCommerces(user));
+      dispatch(filterCommerces(user, filter));
     }, error => errorLogger(error, dispatch))
 );
 
@@ -100,4 +115,6 @@ export {
   deleteFav,
   FETCH_MY_FAVS,
   fetchMyFavs,
+  FILTER_COMMERCES,
+  filterCommerces,
 };

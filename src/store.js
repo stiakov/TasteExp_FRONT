@@ -58,6 +58,10 @@ const initState = {
     showOne: templateShowOne,
     favorites: [],
   },
+  filters: {
+    all: [],
+    current: 0,
+  },
 };
 
 const devTools = typeof window === 'object'

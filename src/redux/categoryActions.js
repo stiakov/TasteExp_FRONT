@@ -15,7 +15,16 @@ const fetchCategories = () => dispatch => (
     }), error => errorLogger(error, dispatch))
 );
 
+const SET_CURRENT_FILTER = 'SET_CURRENT_FILTER';
+
+const setCurrentFilter = filter => dispatch => dispatch({
+  type: SET_CURRENT_FILTER,
+  payload: filter,
+});
+
 export {
   FETCH_CATEGORIES,
   fetchCategories,
+  SET_CURRENT_FILTER,
+  setCurrentFilter,
 };
