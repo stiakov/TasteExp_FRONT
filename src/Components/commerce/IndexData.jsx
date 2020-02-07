@@ -18,6 +18,7 @@ const IndexData = ({ data }) => {
     category,
     favorites,
   } = data;
+
   if (data.name) {
     return (
       <div className="ui centered card">

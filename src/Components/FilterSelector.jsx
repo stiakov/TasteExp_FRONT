@@ -1,7 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
+import { filterCommerces } from '../redux/commerceActions';
+import { setCurrentFilter } from '../redux/categoryActions';
 
-const FilterSelector = ({ all }) => {
+const FilterSelector = ({ all, user }) => {
+  const dispatch = useDispatch();
+
   const selectorDisplay = () => {
     const btn = document.getElementById('filter');
     const menu = document.getElementById('menu');
@@ -10,9 +14,21 @@ const FilterSelector = ({ all }) => {
     menu.classList.toggle('transition');
     menu.classList.toggle('visible');
   };
+
+  const filterResults = (user, filter) => {
+    const buttonText = document.getElementById('nameFilterButton');
+    const title = filter ? filter.name : 'All';
+    const filterId = filter ? filter.id : 0;
+
+    dispatch(setCurrentFilter(filterId));
+    dispatch(filterCommerces(user, filterId));
+    buttonText.innerText = title;
+  };
+
   return (
     <div className="ui buttons">
       <div
+        id="nameFilterButton"
         className="ui button"
         onClick={selectorDisplay}
         onKeyPress={() => {}}
@@ -31,9 +47,29 @@ const FilterSelector = ({ all }) => {
       >
         <i className="dropdown icon" />
         <div id="menu" className="menu">
+          <div
+            key="all"
+            id="all"
+            className="item"
+            onClick={() => filterResults(user)}
+            onKeyPress={() => {}}
+            role="button"
+            tabIndex="0"
+          >
+            <i className="angle right purple icon" />
+            All
+          </div>
           {
             all ? all.map(item => (
-              <div key={item.id} id={item.id} className="item">
+              <div
+                key={item.id}
+                id={item.id}
+                className="item"
+                onClick={() => filterResults(user, item)}
+                onKeyPress={() => {}}
+                role="button"
+                tabIndex="0"
+              >
                 <i className="angle right purple icon" />
                 {item.name}
               </div>
@@ -47,6 +83,9 @@ const FilterSelector = ({ all }) => {
   );
 };
 
-const mapStateToProps = ({ filters }) => ({ all: filters.all });
+const mapStateToProps = ({ filters, user }) => ({
+  all: filters.all,
+  user,
+});
 
 export default connect(mapStateToProps, null)(FilterSelector);
