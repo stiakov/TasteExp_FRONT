@@ -13,6 +13,7 @@ body {
     display: flex;
     flex-flow: column;
 }
+
 .top-0 {
     margin-top: 0;
 }
@@ -57,20 +58,31 @@ body {
     .top-0 {
         margin-top: 0;
     }
+    .commerce-name {
+        font-size: 5vw !important;
+        max-width: 90%;
+    }
+    .close-show {
+        cursor: pointer;
+        font-size: 1.2em !important;
+    }
+    .nav-menu {
+        margin-bottom: 0 !important;
+    }
 }
 
 .bgLogin {
     background: url('./images/giphy1.gif') center center no-repeat;
-    background-size: cover;   
+    background-size: cover;
 }
 
 .bgSignup {
     background: url('./images/giphy2.gif') center center no-repeat;
-    background-size: cover;   
+    background-size: cover;
 }
 
 .trans {
-    background-color: rgba(255,255,255,.85) !important;
+    background-color: rgba(255, 255, 255, .85) !important;
     top: 10vh;
 }
 
@@ -82,7 +94,7 @@ body {
     scrollbar-width: none;
 }
 
-.window::-webkit-scrollbar { 
+.window::-webkit-scrollbar {
     display: none;
     -webkit-overflow-scrolling: touch;
 }
@@ -117,9 +129,9 @@ body {
     right: 1.15em;
     margin: 0 !important;
     background-color: #FFF !important;
-    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
-    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
-    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75) !important;
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75) !important;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75) !important;
     max-width: 2.5em !important;
     max-height: 2.5em !important;
     text-align: center;
@@ -137,9 +149,9 @@ body {
     right: 1.5em;
     margin: 0 !important;
     background-color: #FFF !important;
-    -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
-    -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
-    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75) !important;
+    -webkit-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75) !important;
+    -moz-box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75) !important;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75) !important;
     max-width: 2.5em !important;
     max-height: 2.5em !important;
     text-align: center;
@@ -147,6 +159,7 @@ body {
 
 .commerce-name {
     padding-left: 1rem;
+    margin: 0 !important;
 }
 
 .link {
@@ -157,4 +170,11 @@ body {
 
 .close-show {
     cursor: pointer;
+}
+
+.commerce-head {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
 }
