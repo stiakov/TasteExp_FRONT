@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { ERROR_LOG } from './errorActions';
-import { fetchCategories } from './categoryActions';
 
 const errorLogger = (error, dispatch) => dispatch({ type: ERROR_LOG, error });
 
@@ -14,8 +13,6 @@ const loginUser = user => dispatch => axios.post(`${BASE_URL}/sign_in`, user)
       type: LOGIN_USER,
       user: { current: response.data.data, headers: response.headers },
     });
-    dispatch(fetchCategories());
-    
     if (user.remember) {
       localStorage.setItem('user', JSON.stringify({ current: response.data.data, headers: response.headers }));
     } else {
@@ -27,17 +24,16 @@ const loginUser = user => dispatch => axios.post(`${BASE_URL}/sign_in`, user)
       error,
     });
   });
-  
-  const SIGNUP_USER = 'SIGNUP_USER';
-  
-  const signupUser = user => dispatch => axios.post(`${BASE_URL}`, user)
+
+const SIGNUP_USER = 'SIGNUP_USER';
+
+const signupUser = user => dispatch => axios.post(`${BASE_URL}`, user)
   .then((response) => {
     sessionStorage.setItem('user', JSON.stringify({ current: response.data.data, headers: response.headers }));
     dispatch({
       type: SIGNUP_USER,
       user: { current: response.data.data, headers: response.headers },
     });
-    dispatch(fetchCategories());
   }, error => errorLogger(error, dispatch));
 
 const SIGNOUT_USER = 'SIGNOUT_USER';

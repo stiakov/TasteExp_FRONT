@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { ERROR_LOG } from './errorActions';
+import { fetchCategories } from './categoryActions';
 
 const errorLogger = (error, dispatch) => dispatch({ type: ERROR_LOG, error });
 
@@ -38,6 +39,7 @@ const getAllNoFavCommerces = user => dispatch => (
         type: ALL_NO_FAVS,
         payload: response.data,
       });
+      dispatch(fetchCategories());
     }, error => errorLogger(error, dispatch))
 );
 
@@ -47,10 +49,13 @@ const FETCH_MY_FAVS = 'FETCH_MY_FAVS';
 
 const fetchMyFavs = ({ headers }) => dispatch => (
   axios.get(`${BASE_URL}/favorites/user`, { headers })
-    .then(response => dispatch({
-      type: FETCH_MY_FAVS,
-      payload: response.data,
-    }), error => errorLogger(error, dispatch))
+    .then(response => {
+      dispatch({
+        type: FETCH_MY_FAVS,
+        payload: response.data,
+      });
+      dispatch(fetchCategories());
+    }, error => errorLogger(error, dispatch))
 );
 
 const markAsFav = ({ id, user }) => dispatch => (
