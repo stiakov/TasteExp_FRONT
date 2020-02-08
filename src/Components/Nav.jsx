@@ -18,11 +18,10 @@ const Nav = ({ user }) => {
   };
 
   if (checkSignedIn(user, dispatch)) {
-
     navTemplate = (
       <nav className="ui secondary pointing menu nav-menu">
-        <Link to="/" className="item item-nav" onClick={changeBtnStatus}>HOME</Link>
-        <Link to="/login" className="item item-nav" onClick={changeBtnStatus}>TEST</Link>
+        <Link to="/" className="item item-nav" id="homeTabBtn" onClick={changeBtnStatus}>HOME</Link>
+        <Link to="/favorites" className="item item-nav" onClick={changeBtnStatus}>FAVORITES</Link>
         <div className="right menu">
           <Link to="/" className="ui item item-nav" onClick={handleLogout}>LOGOUT</Link>
         </div>
