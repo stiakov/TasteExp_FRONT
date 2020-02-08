@@ -31,7 +31,6 @@ const getOneCommerce = idComm => dispatch => (
 );
 
 const ALL_NO_FAVS = 'ALL_NO_FAVS';
-
 const getAllNoFavCommerces = user => dispatch => (
   axios.get(`${BASE_URL}/commerces/notsaved`, { headers: user.headers })
     .then((response) => {
