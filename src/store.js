@@ -15,7 +15,7 @@ const templateShowOne = {
   email: undefined,
   website: undefined,
   instagram: undefined,
-  commerce_type: {
+  category: {
     id: 0,
     name: undefined,
   },
@@ -57,6 +57,10 @@ const initState = {
     noFavorites: [],
     showOne: templateShowOne,
     favorites: [],
+  },
+  filters: {
+    all: [],
+    current: 0,
   },
 };
 

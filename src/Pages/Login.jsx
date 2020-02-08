@@ -6,7 +6,7 @@ const Login = (props) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [remember, setRemember] = useState('');
+  const [remember, setRemember] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -62,17 +62,14 @@ const Login = (props) => {
           </div>
           <div className="field">
             <div className="ui checkbox">
-              <label htmlFor="remember_me">
-                <input
-                  id="remember_me"
-                  label="remember_me"
-                  type="checkbox"
-                  name="remember_me"
-                  onChange={event => setRemember(event.target.checked)}
-                  checked={remember}
-                />
-                Remember me
-              </label>
+              <input
+                type="checkbox"
+                name="remember-me"
+                id="remember-me"
+                label="remember_me"
+                onChange={event => setRemember(event.target.checked)}
+              />
+              <label htmlFor="remember_me">Remember me</label>
             </div>
           </div>
           <button type="submit" className="ui fluid black button">Go ahead!</button>

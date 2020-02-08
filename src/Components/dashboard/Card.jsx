@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteFav, getOneCommerce } from '../../redux/commerceActions';
 
@@ -12,11 +12,20 @@ const Card = ({
   type,
   user,
   photos,
+  fromFavorites,
 }) => {
   const dispatch = useDispatch();
+  const filter = useSelector(state => state.filters);
+
+  const customStyles = {
+    image: !fromFavorites ? 'card-image' : 'recent-image',
+    card: fromFavorites ? 'ui card column' : 'ui card cardex',
+    heartIcon: fromFavorites ? 'ui circular icon button recent-fav' : 'ui circular icon button fav',
+  };
+
   const handleFavClick = (event) => {
     event.preventDefault();
-    dispatch(deleteFav({ id, user }));
+    dispatch(deleteFav({ id, user, filter: filter.current }));
   };
 
   const getId = (e) => {
@@ -36,9 +45,9 @@ const Card = ({
   };
 
   return (
-    <div className="ui card cardex">
+    <div className={customStyles.card}>
       <img
-        className="card-image"
+        className={customStyles.image}
         src={photos[0].image_data}
         alt="snapshot"
       />
@@ -67,7 +76,7 @@ const Card = ({
           onClick={handleFavClick}
           onMouseEnter={handleHover}
           onMouseLeave={handleHover}
-          className="ui circular icon button fav"
+          className={customStyles.heartIcon}
         >
           <i id={`favBtn-${id}`} className="heart red icon fav-ico" />
         </button>

@@ -15,16 +15,17 @@ const IndexData = ({ data }) => {
     email,
     website,
     instagram,
-    commerce_type,
+    category,
     favorites,
   } = data;
+
   if (data.name) {
     return (
       <div className="ui centered card">
         <div className="content">
           <div className="header">
             {name}
-            <div className="meta type-type">{commerce_type.name}</div>
+            <div className="meta type-type">{category.name}</div>
           </div>
           <div className="meta">Open</div>
           <div className="description">
