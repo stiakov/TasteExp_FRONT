@@ -4,7 +4,7 @@ import Recents from '../Components/dashboard/Recents';
 import FilterSelector from '../Components/FilterSelector';
 
 const Favorites = ({ commerces }) => {
-  const template = (data) => (
+  const template = data => (
     <div>
       <div className="ui clearing segment top-head pad-top">
         <h2 className="ui left floated header top-title">{data.length > 0 ? `Favorites (${data.length})` : 'Save here your favorites'}</h2>

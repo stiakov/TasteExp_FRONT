@@ -3,7 +3,6 @@ import CardRecents from './CardRecents';
 import Card from './Card';
 
 const Recents = ({ recents, fromFavorites }) => {
-
   if (fromFavorites) {
     return (
       <div className="ui three doubling cards">

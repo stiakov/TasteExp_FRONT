@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { loginUser } from '../redux/authActions';

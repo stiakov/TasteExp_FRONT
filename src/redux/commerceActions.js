@@ -49,7 +49,7 @@ const FETCH_MY_FAVS = 'FETCH_MY_FAVS';
 
 const fetchMyFavs = ({ headers }) => dispatch => (
   axios.get(`${BASE_URL}/favorites/user`, { headers })
-    .then(response => {
+    .then((response) => {
       dispatch({
         type: FETCH_MY_FAVS,
         payload: response.data,
@@ -60,11 +60,11 @@ const fetchMyFavs = ({ headers }) => dispatch => (
 
 const FILTER_COMMERCES = 'FILTER_COMMERCES';
 
-const filterCommerces = (user, filterId = 0) => dispatch =>{
+const filterCommerces = (user, filterId = 0) => (dispatch) => {
   if (filterId === 0) return dispatch(getAllNoFavCommerces(user));
   return (
     axios.get(`${BASE_URL}/commerces/filter/${filterId}`, { headers: user.headers })
-      .then(response => {
+      .then((response) => {
         dispatch({
           type: FILTER_COMMERCES,
           payload: response.data,
@@ -103,15 +103,15 @@ const deleteFav = ({ id, user, filter }) => dispatch => (
 );
 
 const FILTER_FAVORITES = 'FILTER_FAVORITES';
-const filterFavoritesTaskObj = (response) => ({
+const filterFavoritesTaskObj = response => ({
   type: FILTER_FAVORITES,
   payload: response.data,
 });
-const filterFavorites = (user, filterId = 0) => dispatch => {
+const filterFavorites = (user, filterId = 0) => (dispatch) => {
   if (filterId === 0) return dispatch(fetchMyFavs(user));
   return (
     axios.get(`${BASE_URL}/commerces/filterfav/${filterId}`, { headers: user.headers })
-      .then(response => {
+      .then((response) => {
         dispatch(filterFavoritesTaskObj(response));
       }, error => errorLogger(error, dispatch))
   );

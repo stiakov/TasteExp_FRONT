@@ -10,12 +10,12 @@ const SIGNUP_USER = 'SIGNUP_USER';
 const SIGNOUT_USER = 'SIGNOUT_USER';
 const CHECK_SIGNED_IN = 'CHECK_SIGNED_IN';
 
-const loginTaskObj = (response) => ({
+const loginTaskObj = response => ({
   type: LOGIN_USER,
   user: { current: response.data.data, headers: response.headers },
 });
 
-const signupTaskObj = (response) => ({
+const signupTaskObj = response => ({
   type: SIGNUP_USER,
   user: { current: response.data.data, headers: response.headers },
 });
@@ -25,7 +25,7 @@ const signoutTaskObj = () => ({
   user: false,
 });
 
-const checkSignedInTaskObj = (user) => ({
+const checkSignedInTaskObj = user => ({
   type: CHECK_SIGNED_IN,
   user,
 });
