@@ -3,7 +3,7 @@ import { ERROR_LOG } from './errorActions';
 
 const errorLogger = (error, dispatch) => dispatch({ type: ERROR_LOG, error });
 
-const BASE_URL = 'http://localhost:3000/v1';
+const BASE_URL = 'https://taste-explorer-api.herokuapp.com/v1';
 
 const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 

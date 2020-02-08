@@ -3,7 +3,7 @@ import { ERROR_LOG } from './errorActions';
 
 const errorLogger = (error, dispatch) => dispatch({ type: ERROR_LOG, error });
 
-const BASE_URL = 'http://localhost:3000/auth';
+const BASE_URL = 'https://taste-explorer-api.herokuapp.com/auth';
 
 const LOGIN_USER = 'LOGIN_USER';
 const SIGNUP_USER = 'SIGNUP_USER';
