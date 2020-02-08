@@ -36,7 +36,6 @@ const CardRecents = ({
     dispatch(getOneCommerce(commId));
   };
 
-
   return (
     <div className="ui card column">
       <img className="recent-image" src={photos[0].image_data} alt="snapshot" />

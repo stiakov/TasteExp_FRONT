@@ -16,7 +16,7 @@ const Dashboard = ({ user, commerces, filters }) => {
 
   return (
     <div>
-      <h2 className="pad-top">{favorites.length === 0 ? `Welcome ${user.current.name}` : 'Your Favorites'}</h2>
+      <h2 className="pad-top">{favorites.length === 0 ? `Welcome ${user.current.name}` : 'Your Selection'}</h2>
       { favorites.length > 0
         ? <Carousel commerces={favorites} />
         : <div />}
@@ -28,7 +28,7 @@ const Dashboard = ({ user, commerces, filters }) => {
           <FilterSelector />
         </div>
       </div>
-      <Recents recents={noFavorites} />
+      <Recents recents={noFavorites} fromFavorites={false} />
     </div>
   );
 };
