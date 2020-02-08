@@ -25,7 +25,7 @@ const Dashboard = ({ user, commerces, filters }) => {
       <div className="ui clearing segment top-head">
         <h2 className="ui left floated header top-title">Top based on your location</h2>
         <div className="ui right floated header top-filter">
-          <FilterSelector />
+          <FilterSelector fromFavorites={false} />
         </div>
       </div>
       <Recents recents={noFavorites} fromFavorites={false} />

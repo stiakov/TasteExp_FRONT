@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { filterCommerces } from '../redux/commerceActions';
+import { filterCommerces, filterFavorites } from '../redux/commerceActions';
 import { setCurrentFilter } from '../redux/categoryActions';
 
-const FilterSelector = ({ all, user }) => {
+const FilterSelector = ({ all, user, fromFavorites }) => {
   const dispatch = useDispatch();
 
   const selectorDisplay = () => {
@@ -19,9 +19,12 @@ const FilterSelector = ({ all, user }) => {
     const buttonText = document.getElementById('nameFilterButton');
     const title = filter ? filter.name : 'All';
     const filterId = filter ? filter.id : 0;
-
     dispatch(setCurrentFilter(filterId));
-    dispatch(filterCommerces(user, filterId));
+    if (fromFavorites) {
+      dispatch(filterFavorites(user, filterId));
+    } else {
+      dispatch(filterCommerces(user, filterId));
+    }
     buttonText.innerText = title;
   };
 

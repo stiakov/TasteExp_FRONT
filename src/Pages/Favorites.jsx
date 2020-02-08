@@ -9,7 +9,7 @@ const Favorites = ({ commerces }) => {
       <div className="ui clearing segment top-head pad-top">
         <h2 className="ui left floated header top-title">{data.length > 0 ? `Favorites (${data.length})` : 'At the moment, you do not have favorites'}</h2>
         <div className="ui right floated header top-filter">
-          {data.length > 0 ? <FilterSelector /> : <div />}
+          {data.length > 0 ? <FilterSelector fromFavorites /> : <div />}
         </div>
       </div>
       <Recents recents={commerces.favorites} fromFavorites />
@@ -18,7 +18,6 @@ const Favorites = ({ commerces }) => {
 
   return template(commerces.favorites);
 };
-
 
 const mapStateToProps = state => ({ commerces: state.commerces });
 export default connect(mapStateToProps, null)(Favorites);

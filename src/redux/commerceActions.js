@@ -102,6 +102,21 @@ const deleteFav = ({ id, user, filter }) => dispatch => (
     }, error => errorLogger(error, dispatch))
 );
 
+const FILTER_FAVORITES = 'FILTER_FAVORITES';
+const filterFavoritesTaskObj = (response) => ({
+  type: FILTER_FAVORITES,
+  payload: response.data,
+});
+const filterFavorites = (user, filterId = 0) => dispatch => {
+  if (filterId === 0) return dispatch(fetchMyFavs(user));
+  return (
+    axios.get(`${BASE_URL}/commerces/filterfav/${filterId}`, { headers: user.headers })
+      .then(response => {
+        dispatch(filterFavoritesTaskObj(response));
+      }, error => errorLogger(error, dispatch))
+  );
+};
+
 export {
   GET_ALL_COMMERCES,
   getAllCommerces,
@@ -117,4 +132,6 @@ export {
   fetchMyFavs,
   FILTER_COMMERCES,
   filterCommerces,
+  FILTER_FAVORITES,
+  filterFavorites,
 };
