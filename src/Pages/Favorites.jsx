@@ -7,9 +7,9 @@ const Favorites = ({ commerces }) => {
   const template = (data) => (
     <div>
       <div className="ui clearing segment top-head pad-top">
-        <h2 className="ui left floated header top-title">{data.length > 0 ? `Favorites (${data.length})` : 'At the moment, you do not have favorites'}</h2>
+        <h2 className="ui left floated header top-title">{data.length > 0 ? `Favorites (${data.length})` : 'Save here your favorites'}</h2>
         <div className="ui right floated header top-filter">
-          {data.length > 0 ? <FilterSelector fromFavorites /> : <div />}
+          <FilterSelector fromFavorites />
         </div>
       </div>
       <Recents recents={commerces.favorites} fromFavorites />
