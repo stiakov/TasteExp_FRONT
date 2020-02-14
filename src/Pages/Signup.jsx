@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { signupUser } from '../redux/authActions';
 
 const Login = (props) => {
@@ -100,6 +101,10 @@ const Login = (props) => {
       </div>
     </div>
   );
+};
+
+Login.propTypes = {
+  history: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 const mapStateToProps = state => ({ user: state.user });
