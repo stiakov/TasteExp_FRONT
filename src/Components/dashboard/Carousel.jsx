@@ -6,7 +6,7 @@ const Carousel = ({ commerces }) => (
     {
         commerces.map(item => (
           <Card
-            key={item.id}
+            key={`card-${item.id}`}
             id={item.id}
             commId={item.commerce.id}
             name={item.commerce.name}

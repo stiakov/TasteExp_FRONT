@@ -65,7 +65,7 @@ const FilterSelector = ({ all, user, fromFavorites }) => {
           {
             all ? all.map(item => (
               <div
-                key={item.id}
+                key={`filter-${item.id}`}
                 id={item.id}
                 className="item"
                 onClick={() => filterResults(user, item)}
