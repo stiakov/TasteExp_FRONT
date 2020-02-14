@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './redux/indexReducer';
 import reduxReset from 'redux-reset';
+import rootReducer from './redux/indexReducer';
 
 const templateShowOne = {
   id: 0,
