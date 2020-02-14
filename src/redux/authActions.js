@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { ERROR_LOG } from './errorActions';
+import { initState } from '../store';
 
 const errorLogger = (error, dispatch) => dispatch({ type: ERROR_LOG, error });
 
@@ -28,6 +29,11 @@ const signoutTaskObj = () => ({
 const checkSignedInTaskObj = user => ({
   type: CHECK_SIGNED_IN,
   user,
+});
+
+const resetStateTask = () => ({
+  type: 'RESET',
+  state: initState,
 });
 
 const loginUser = user => dispatch => axios.post(`${BASE_URL}/sign_in`, user)
@@ -60,6 +66,7 @@ const signoutUser = (currentUser = false) => (dispatch) => {
       localStorage.removeItem('user');
       sessionStorage.removeItem('user');
       dispatch(signoutTaskObj(currentUser));
+      dispatch(resetStateTask());
     }, error => errorLogger(error, dispatch));
 };
 
