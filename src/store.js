@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import reduxReset from 'redux-reset';
 import rootReducer from './redux/indexReducer';
 
 const templateShowOne = {
@@ -49,7 +50,7 @@ const templateShowOne = {
   ],
 };
 
-const initState = {
+export const initState = {
   user: false,
   error: {},
   commerces: {
@@ -73,6 +74,7 @@ const store = createStore(
   rootReducer, initState,
   compose(
     applyMiddleware(thunk),
+    reduxReset(),
     devTools,
   ),
 );

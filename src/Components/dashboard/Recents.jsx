@@ -9,7 +9,7 @@ const Recents = ({ recents, fromFavorites }) => {
         {
           recents.map(item => (
             <Card
-              key={item.id}
+              key={`fav-${item.id}`}
               id={item.id}
               commId={item.commerce.id}
               name={item.commerce.name}
@@ -30,7 +30,7 @@ const Recents = ({ recents, fromFavorites }) => {
       {
         recents.map(item => (
           <CardRecents
-            key={item.id}
+            key={`recent-${item.id}`}
             id={item.id}
             commId={item.id}
             name={item.name}
